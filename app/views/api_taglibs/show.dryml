@@ -1,4 +1,4 @@
-<show-page title="#{this.name.titleize}" without-account-nav>
+<show-page title="Taglibs" full-title="#{this.name.titleize}" without-account-nav>
 
   <aside-content:>
     <api-navigation />

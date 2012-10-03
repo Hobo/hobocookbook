@@ -1,4 +1,4 @@
-<page title="Hobo Tutorials" without-account-nav>
+<page title="Tutorials" full-title="Hobo Tutorials" without-account-nav>
   <aside-content:>
     <left-navigation with="&TutorialsController::titles" title="Tutorials" url="#{base_url}/tutorials" current="&@title" />
   </aside-content:>

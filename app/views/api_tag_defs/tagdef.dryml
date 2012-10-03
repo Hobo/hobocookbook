@@ -33,7 +33,7 @@
   </ul>
 </def>
 
-<show-page title="#{h this.full_name}" without-content-header without-account-nav>
+<show-page title="Taglibs" full-title="#{h this.full_name}" without-content-header without-account-nav>
 
   <aside-content:>
     <api-navigation />

@@ -1,4 +1,4 @@
-<index-page without-account-nav>
+<index-page title="Taglibs" without-account-nav>
 
   <aside-content:>
     <api-navigation/>
