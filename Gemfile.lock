@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: git://github.com/Hobo/hobo_bootstrap.git
-  revision: a6a3a7fc603ed727caf5dc9773d8e2a1951bf462
+  revision: 2fc4a72f7e353dd5904e7f453add67a3c195b0c3
   specs:
     hobo_bootstrap (2.0.0.pre3)
       compass-rails (~> 1.0.3)
