@@ -4,7 +4,9 @@ class FrontController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, :only => [:search]
 
-  def index; end
+  def index
+    redirect_to :controller => :manual, :section => :toc, :action => :manual_section
+  end
 
   def search
     if params[:query]

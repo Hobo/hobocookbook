@@ -40,12 +40,13 @@
   </aside-content:>
 
   <content-body:>
-    <div class="last-update">
+    <div class="last-update pull-right">
       <a href="&this.edit_link">Edit this page</a>
     </div>
 
     <show-api-tag/>
 
+<%#
     <!-- <section class="collection-section"> -->
       <!-- <h3 class="collection-heading">Comments</h3> -->
 
@@ -58,7 +59,7 @@
       <!--     <submit: label="Add"/> -->
       <!--   </form> -->
       <!-- </section> -->
-    <!-- </section> -->
+    <!-- </section> --> %>
 
     <related-tags-summary/>
 

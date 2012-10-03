@@ -8,7 +8,6 @@
 // the the compiled file.
 //
 //= require application
-//
-// The default Hobo theme
-//= require hobo_clean
+//= require bootstrap-all
+//= require hobo_bootstrap
 //= require_tree ./front

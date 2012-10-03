@@ -7,7 +7,7 @@
   
   <content:>
     <section class="content-body">
-      <div class="last-update">
+      <div class="last-update pull-right">
         Last updated: <view with="&@last_update"/><br/>
         <if test="&@edit_link"><a href="&@edit_link">Edit this page</a></if>
       </div>

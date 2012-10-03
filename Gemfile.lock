@@ -100,6 +100,13 @@ GIT
     vlad-git (2.2.0)
       vlad (>= 2.1.0)
 
+GIT
+  remote: git://github.com/wyuenho/compass-twitter-bootstrap
+  revision: a05019a303531d92b9e6a7cf2c7dfca980f67e27
+  specs:
+    compass_twitter_bootstrap (2.0.4)
+      compass
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -148,8 +155,6 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
-    compass_twitter_bootstrap (2.0.3)
-      compass
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -252,6 +257,8 @@ DEPENDENCIES
   awesome_print
   cocaine
   coffee-rails (~> 3.2.1)
+  compass-rails
+  compass_twitter_bootstrap!
   doc!
   dryml!
   execjs

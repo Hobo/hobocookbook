@@ -1,18 +1,18 @@
 <page title="Hobo Manual - #{@title}" without-account-nav>
   <body: class="manual"/>
-  
+
   <aside-content:>
     <left-navigation with="&ManualController.titles" title="Manual" url="#{base_url}/manual" current="&@title" subtitles="&@subtitles" />
   </aside-content:>
-  
+
   <content:>
     <section class="content-body">
-      <div class="last-update">
+      <div class="last-update pull-right">
         Last updated: <view with="&@last_update"/><br/>
         <a href="&@edit_link">Edit this page</a>
       </div>
       <view with="&@content"/>
     </section>
   </content:>
-    
+
 </page>

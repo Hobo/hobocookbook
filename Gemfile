@@ -50,6 +50,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'execjs'
   gem 'therubyracer'
+
+  gem 'compass_twitter_bootstrap', :git => 'git://github.com/wyuenho/compass-twitter-bootstrap'
+  gem 'compass-rails'
 end
 
 # Hobo plugins included solely for documentation
