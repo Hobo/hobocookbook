@@ -1317,9 +1317,9 @@ gitorial-034: [view on github](http://github.com/Hobo/agility-gitorial/commit/83
 
 <a name='filtering-stories-by-status-css'> </a>
 
-To make the filter look right, add this to `public/stylesheets/application.css`
+To make the filter look right, add this to `app/assets/stylesheets/application.css`
 
-    ::: public/stylesheets/application.css
+    ::: app/assets/stylesheets/application.css
     @@ -0,0 +1,2 @@
     +.show-page.project .filter {float: left;}
     +.show-page.project .filter form, .show-page.project .filter form div {display: inline;}
@@ -2990,7 +2990,7 @@ The current `users/show` page could be improved a lot. For example, it doesn't g
 
 The default Hobo theme “Clean” provides comprehensive but minimal styling for all of Hobo’s generic pages and tags. When styling your app you have a choice between creating your own theme from scratch or tweaking an existing theme to suit your needs. The Clean theme has been designed with this in mind; it can be adapted to look very different with only a small amount of effort.
 
-In this section we will adapt our existing theme to create a new look for our app. We will make our changes in `public/stylesheets/application.css`, which is initially empty. This stylesheet is applied after our theme stylesheet so we can override the theme's styles here instead of editing the theme stylesheet directly. This approach means that we can upgrade the theme in the future with minimal effort, although it also means that our stylesheets will be bigger than they could be, so the approach is better suited to small and medium sized projects. For larger projects it might be better to create a new theme, perhaps based on an existing one, or do away with themes altogether and do all the styling in the `application.css` stylesheet.
+In this section we will adapt our existing theme to create a new look for our app. We will make our changes in `app/assets/stylesheets/application.css`, which is initially empty. This stylesheet is applied after our theme stylesheet so we can override the theme's styles here instead of editing the theme stylesheet directly. This approach means that we can upgrade the theme in the future with minimal effort, although it also means that our stylesheets will be bigger than they could be, so the approach is better suited to small and medium sized projects. For larger projects it might be better to create a new theme, perhaps based on an existing one, or do away with themes altogether and do all the styling in the `application.css` stylesheet.
 
 In order to override our existing theme styles we need to know about the styles that are being applied. For this we can look at the existing theme file in `public/hobothemes/clean/stylesheets/clean.css`. Another good source for this information is by using [Firebug](http://www.firebug.com) in Firefox where we can examine the various page elements to discover what styling is being applied.
 
@@ -3014,7 +3014,7 @@ With these classes it becomes very easy to style specific elements on the page. 
 `.index-page .card.project` - Style "project" cards on index pages
 `.show-page.project .card.story` - Style "story" cards on the "project" show page
 
-We'll now add some styling to `public/stylesheets/application.css` to make our Agility app look a bit different.
+We'll now add some styling to `app/assets/stylesheets/application.css` to make our Agility app look a bit different.
 
 The first thing we'll do is switch from a "boxed in" look to an horizontally open style. To do this we'll use a background image to draw a horizontal top banner across the whole page and change the page background colour to white:
 
