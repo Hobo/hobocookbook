@@ -2259,7 +2259,7 @@ There's just a couple of things to do to round this part of the tutorial off. Fi
     -      <collection:projects with="&current_user"><card without-creator-link/></collection>
     +      <collection:projects><card without-creator-link/></collection>
     +
-    +      <a:projects action="new">New Project</a>
+    +      <a with="&Project" action="new">New Project</a>
     +
     +      <h3>Projects you have joined</h3>
     +      <collection:joined-projects><card without-creator-link/></collection>
