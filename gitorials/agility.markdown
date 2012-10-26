@@ -755,9 +755,9 @@ At the moment, the only way to see who's assigned to a task is to click the task
 
 DRYML has a feature called *polymorphic tags*. These are tags that are defined differently for different types of object. Rapid makes use of this feature with a system of "cards". The tasks that are displayed on the story page are rendered by the `<card>`. You can define custom cards for particular models. Furthermore, if you call `<base-card>` you can define your card by tweaking the default, rather than starting from scratch. This is what DRYML is all about. It's like a smart-bomb, capable of taking out little bits of unwanted HTML with pin-point strikes and no collateral damage.
 
-The file `app/views/taglibs/application.dryml` is a place to put tag definitions that will be available throughout the site. Add this definition to that file:
+The file `app/views/taglibs/front_site.dryml` is a place to put tag definitions that will be available throughout the site. Add this definition to that file:
 
-    ::: app/views/taglibs/application.dryml
+    ::: app/views/taglibs/front_site.dryml
     @@ -5,5 +5,15 @@
      <include src="taglibs/auto/rapid/cards"/>
      <include src="taglibs/auto/rapid/pages"/>
@@ -1445,9 +1445,9 @@ gitorial-039: [view on github](http://github.com/Hobo/agility-gitorial/commit/5b
 
 You'll notice a slight glitch -- the tasks position has been added to the new-task and edit-task forms. We don't want that. We'll fix it by customising the Task form.
 
-In `application.dryml` add:
+In `front_site.dryml` add:
 
-    ::: app/views/taglibs/application.dryml
+    ::: app/views/taglibs/front_site.dryml
     @@ -15,5 +15,11 @@
            Assigned users: <repeat:users join=", "><a/></repeat><else>None</else>
          </div>
@@ -2211,7 +2211,7 @@ gitorial-063: [view on github](http://github.com/Hobo/agility-gitorial/commit/01
 
 <a name='removing-members-2'> </a>
 
-We have a problem -- the membership card doesn't display the user's name. There are two ways we could fix this. We could either customise the global membership card using `<extend tag="card" for="Membership">` in `application.dryml`, or we could customise *this particular usage* of the membership card. Let's do the latter. Modify the `<collection:memberships>` as follows:
+We have a problem -- the membership card doesn't display the user's name. There are two ways we could fix this. We could either customise the global membership card using `<extend tag="card" for="Membership">` in `front_site.dryml`, or we could customise *this particular usage* of the membership card. Let's do the latter. Modify the `<collection:memberships>` as follows:
 
     ::: app/views/projects/show.dryml
     @@ -10,11 +10,13 @@
@@ -2355,7 +2355,7 @@ Views](#customising_views).
 ## Redefinition
 
 The next level of customization is to redefine a tag or function.
-`app/views/taglibs/application.dryml` gets loaded after the RAPID
+`app/views/taglibs/front_site.dryml` gets loaded after the RAPID
 library and the auto-generated DRYML, so if you redefine a tag, your
 definition will be used instead of the library definition.
 
@@ -2369,7 +2369,7 @@ generally frowned upon -- DRYML includes "don't repeat yourself",
 after all, but sometimes we do it anyways.  In our case, we'll be
 cutting and pasting from the top of `view/taglibs/auto/rapid/pages.dryml`.
 
-    ::: app/views/taglibs/application.dryml
+    ::: app/views/taglibs/front_site.dryml
     @@ -31,5 +31,10 @@
            <editor:contributor/>
          </body:>
