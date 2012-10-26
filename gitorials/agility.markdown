@@ -358,8 +358,7 @@ When the migration generator asks you
     What now: [g]enerate migration, generate and [m]igrate now or [c]ancel?
 
 Choose `m` to both generate the migration and apply it to your
-database.   We entered `initial_migration` as the name for our
-migration.
+database. We can use `hobo_migration_1` as suggested by default.
 
 Now you can start your application
 
