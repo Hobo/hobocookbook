@@ -2223,7 +2223,7 @@ We have a problem -- the membership card doesn't display the user's name. There 
     -    <collection:memberships part="members"/>
     +    <collection:memberships part="members">
     +      <card><heading:><a:user/></heading:></card>
-    +    </collection>
+    +    </collection:memberships>
      
          <form:memberships.new update="members" reset-form refocus-form>
            <div>
