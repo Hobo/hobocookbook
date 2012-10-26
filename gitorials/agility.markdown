@@ -351,7 +351,7 @@ gitorial-006: [view on github](http://github.com/Hobo/agility-gitorial/commit/b4
 
 Now watch how Hobo can create a single migration for all of these:
 
-    $ rails generate hobo:migration
+    $ hobo generate migration
 
 When the migration generator asks you
 
