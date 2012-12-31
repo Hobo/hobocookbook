@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Hobo/hobo.git
-  revision: d488535d4d719544e7d6ecffa656762f2994d692
+  revision: 95dcadd6030e07d05ab0ae69cbc10c347ec590e0
   specs:
     doc (0.0.1)
     dryml (2.0.0.pre7)
@@ -195,6 +195,7 @@ GEM
     multi_xml (0.5.1)
     multipart-post (1.1.5)
     mysql (2.8.1)
+    nokogiri (1.5.5)
     oauth2 (0.8.0)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -309,6 +310,7 @@ DEPENDENCIES
   jquery-ui-themes
   maruku
   mysql
+  nokogiri
   omniauth-github
   paperclip (~> 2.7)
   quiet_assets
