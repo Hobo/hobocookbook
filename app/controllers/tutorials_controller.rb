@@ -1,31 +1,25 @@
 class TutorialsController < ApplicationController
-  
-  caches_page :index, :show
-  
-  TITLES = begin
-             titles = ActiveSupport::OrderedHash.new
-             [['two-minutes',    ["Thingybob - the two minute Hobo app", "https://github.com/tablatom/hobocookbook/edit/1-3-stable/gitorials/two-minutes.markdown"]],
-              ['screencast',     ["Screencast", "https://github.com/tablatom/hobocookbook/edit/1-3-stable/gitorials/screencast.markdown"]],
-              ['agility',        ["Agility - demonstrates all Hobo features", nil]],
-              ['gitorial',       ["Agility git sidebar", nil]],
-              ['subsite',        ["An admin subsite on a generic Rails app", "https://github.com/tablatom/hobocookbook/edit/1-3-stable/gitorials/subsite.markdown"]]
-             ].each do |title, desc|
-               titles[title]=desc
-             end
-             titles
-           end
-  
-  def show
-    tutorial     = params[:tutorial].gsub(/[^a-z_\-]/, '')
-    filename     = "gitorials/#{tutorial}.markdown"
-    @title       = TITLES[tutorial][0]
-    @content     = HoboFields::Types::MarkdownString.new(File.read("#{Rails.root}/#{filename}"))
-    @last_update = last_update filename
-    @edit_link   = TITLES[tutorial][1]
+
+  DOC_ROOT     = `bundle show doc`.strip
+  caches_page :show
+
+  def index
+    redirect_to :action => "show", :tutorial => "toc"
   end
 
-  def self.titles
-    ActiveSupport::OrderedHash[*TITLES.map {|k,v| [k, v[0]]}.flatten]
-  end  
+  def show
+    tutorial     = params[:tutorial].gsub(/[^a-z0-9_\-]/, '')
+    filename     = "tutorials/#{tutorial}.markdown"
+    @content     = HoboFields::Types::MarkdownString.new(File.read("#{DOC_ROOT}/#{filename}"))
+    @title       = @content.split("\n").first.gsub(/^# /, '')
+    @last_update = last_update filename
+    if tutorial=='agility' || tutorial=='gitorial'
+      @edit_link = nil
+    else
+      @edit_link  = "https://github.com/Hobo/doc/tutorials/#{tutorial}.markdown"
+    end
+
+    @sidebar = Maruku.new(File.read("#{DOC_ROOT}/tutorials/sidebar.markdown")).to_html.html_safe
+  end
 
 end

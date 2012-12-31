@@ -1,10 +1,12 @@
 <page title="Tutorials" full-title="Hobo Tutorials - #{@title}" without-account-nav>
   <body: class="tutorial"/>
-  
+
   <aside-content:>
-    <left-navigation with="&TutorialsController.titles" title="Tutorials" url="#{base_url}/tutorials" current="&@title" />
+    <div class="well">
+      <%= @sidebar %>
+    </div>
   </aside-content:>
-  
+
   <content:>
     <section class="content-body">
       <div class="last-update pull-right">
@@ -13,6 +15,9 @@
       </div>
       <view with="&@content"/>
     </section>
+    <br/>
+    <a href="&@edit_link">Edit this page</a>
+    <disqus identifier="&request.path"/>
   </content:>
-    
+
 </page>

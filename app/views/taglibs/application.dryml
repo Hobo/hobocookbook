@@ -294,9 +294,9 @@
 <def tag="left-navigation" attrs="current, title, subtitles, current-subtitle, url">
   <div class="well">
     <navigation current="&current" class="nav nav-list">
-      <li class="nav-header"><h2><a href="&url"><%= title %></a></h2></li>
+      <li class="nav-header"><h4><a href="&url"><%= title %></a></h4></li>
       <repeat>
-        <nav-item href="#{url}/#{this_key}"><h4><%= this %></h4></nav-item>
+        <nav-item href="#{url}/#{this_key}"><%= this %></nav-item>
         <ul if="&current == this" class="nav nav-list">
           <% current_title = this_key -%>
           <repeat with="&subtitles">
@@ -380,5 +380,5 @@ These attributes are described at: http://help.disqus.com/customer/portal/articl
 
 
 <extend tag="disqus">
-  <old-disqus shortname="hobo-disqus-test"/>
+  <old-disqus shortname="hobo-staging"/>
 </extend>
