@@ -5,13 +5,14 @@
  * will be included.
  *
  *= require_self
+ *= require hobo_rapid
+ *= require hobo_jquery
  *= require hobo_bootstrap
- *= require jquery-ui/redmond
+ *= require hobo_bootstrap_ui
  *= require application
  *= require_tree ./front
 */
 
-@import "compass_twitter_bootstrap";
 
 .document-title {
   @extend .lead;

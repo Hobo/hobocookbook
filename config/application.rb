@@ -51,5 +51,7 @@ module Hobocookbook
     config.assets.precompile += %w(front.css front.js)
 
     config.action_controller.page_cache_directory = "#{Rails.root}/public/cache"
+
+    config.active_record.whitelist_attributes = true
   end
 end

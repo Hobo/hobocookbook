@@ -8,6 +8,5 @@
 // the the compiled file.
 //
 //= require application
-//= require bootstrap-all
 //= require hobo_bootstrap
 //= require_tree ./front

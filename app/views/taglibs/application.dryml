@@ -8,8 +8,8 @@
 
 <include gem='hobo_rapid'/>
 <include gem='hobo_jquery'/>
-<include gem='hobo_jquery_ui'/>
 <include gem='hobo_bootstrap'/>
+<include gem='hobo_bootstrap_ui'/>
 
 <def tag="app-name">Hobo Cookbook</def>
 
@@ -291,26 +291,28 @@
 </def>
 
 <def tag="left-navigation" attrs="current, title, subtitles, current-subtitle, url">
-  <navigation current="&current" class="nav nav-list">
-    <li class="nav-header"><h2><a href="&url"><%= title %></a></h2></li>
-    <repeat>
-      <nav-item href="#{url}/#{this_key}"><h4><%= this %></h4></nav-item>
-      <ul if="&current == this" class="nav nav-list">
-        <% current_title = this_key -%>
-        <repeat with="&subtitles">
-          <li class="#{'active' if this==current_subtitle}">
-            <a href="#{url}/#{current_title}/#{this_key}"><%= this %></a>
-          </li>
-        </repeat>
-      </ul>
-    </repeat>
-  </navigation>
+  <div class="well">
+    <navigation current="&current" class="nav nav-list">
+      <li class="nav-header"><h2><a href="&url"><%= title %></a></h2></li>
+      <repeat>
+        <nav-item href="#{url}/#{this_key}"><h4><%= this %></h4></nav-item>
+        <ul if="&current == this" class="nav nav-list">
+          <% current_title = this_key -%>
+          <repeat with="&subtitles">
+            <li class="#{'active' if this==current_subtitle}">
+              <a href="#{url}/#{current_title}/#{this_key}"><%= this %></a>
+            </li>
+          </repeat>
+        </ul>
+      </repeat>
+    </navigation>
+  </div>
 </def>
 
 <def tag="user-notes">
   <section param="user-notes">
     <h3 param="collection-heading">User contributed notes</h3>
-    
+
     <collection param/>
 
     <section param="add-to-collection" if="&can_create?">

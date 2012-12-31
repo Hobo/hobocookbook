@@ -51,12 +51,13 @@ group :assets do
   gem 'execjs'
   gem 'therubyracer'
 
-  gem 'compass_twitter_bootstrap', :git => 'git://github.com/wyuenho/compass-twitter-bootstrap'
-  gem 'compass-rails'
+  gem 'bootstrap-sass'
+  gem 'bootswatch-rails'
 end
 
 # Hobo plugins included solely for documentation
 gem "hobo_bootstrap", :git => "git://github.com/Hobo/hobo_bootstrap.git"
+gem "hobo_bootstrap_ui", :git => "git://github.com/Hobo/hobo_bootstrap_ui.git"
 gem "hobo_tree_table", :git => "git://github.com/Hobo/hobo_tree_table.git"
 gem "select_one_or_new_dialog", :git => "git://github.com/Hobo/select_one_or_new_dialog.git"
 gem "hobo_simple_color", :git => "git://github.com/Hobo/hobo_simple_color.git"
