@@ -4,9 +4,6 @@ module ApiDocLoader
 
   #  TAGLIB_HOME = "#{RAILS_ROOT}/vendor/plugins/hobo/hobo/taglibs"
 #  TAGLIB_HOME = "#{Rails.root}/vendor/hobo13/hobo/lib/hobo/rapid/taglibs"
-  TAGLIB_HOME = "#{Hobo.root}/lib/hobo/rapid/taglibs"
-  INTERNAL_PLUGINS = [ HoboRapid, HoboJquery, HoboClean, HoboCleanAdmin]
-  PLUGINS_HOME = "#{Rails.root}/taglibs"
 
   class Taglib < Dryml::DrymlDoc::Taglib
 

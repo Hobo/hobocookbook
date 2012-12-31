@@ -27,6 +27,7 @@ class ApiPlugin < ActiveRecord::Base
   end
 
   attr_accessor :dir
+  attr_accessible :name, :short_description, :edit_link_base, :edit_link, :position, :taglibs
 
   has_many :taglibs, :class_name => "ApiTaglib", :foreign_key => "plugin_id"
 

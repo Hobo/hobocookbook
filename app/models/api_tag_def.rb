@@ -31,6 +31,8 @@ class ApiTagDef < ActiveRecord::Base
     timestamps
   end
 
+  attr_accessible :tag, :extension, :polymorphic, :for_type, :short_description, :description, :tag_attributes, :tag_parameters, :merge_attrs, :merge_params, :source, :edit_link, :taglib, :taglib_id
+
   belongs_to :taglib, :class_name => "ApiTaglib"
   has_many   :comments, :class_name => "ApiTagComment", :dependent => :destroy
 

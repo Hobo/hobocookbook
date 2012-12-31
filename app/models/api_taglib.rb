@@ -25,6 +25,7 @@ class ApiTaglib < ActiveRecord::Base
     edit_link :string
     timestamps
   end
+  attr_accessible :name, :short_description, :description, :edit_link, :plugin, :plugin_id, :tags
 
   belongs_to :plugin, :class_name => "ApiPlugin"
   has_many :tags, :class_name => "ApiTagDef", :foreign_key => "taglib_id"
