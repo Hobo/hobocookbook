@@ -3,11 +3,14 @@ class User < ActiveRecord::Base
   hobo_user_model # Don't put anything above this
 
   fields do
-    username :string, :login => true, :name => true
-    email_address :email_address
-    administrator :boolean, :default => false
+    username :string
+    email_address :email_address, :login => true, :validate => false, :null => false
+    administrator :boolean, :default => false, :null => false
     timestamps
   end
+  attr_accessible :email_address, :username, :nickname
+
+  include HoboOmniauth::UserAuth
 
   # This gives admin rights to the first sign-up.
   # Just remove it if you don't want that
@@ -16,39 +19,6 @@ class User < ActiveRecord::Base
   children :recipes, :questions, :answers
 
   scope :administrator, :conditions => {:administrator => true}
-
-  # --- Signup lifecycle --- #
-
-  lifecycle do
-
-    state :active
-    state :pending, :default => true
-
-    create :signup, :available_to => "Guest",
-           :params => [:username, :email_address, :password, :password_confirmation],
-           :become => :pending
-
-    transition :request_password_reset, { :active => :active }, :new_key => true do
-      UserMailer.deliver_forgot_password(self, lifecycle.key)
-    end
-
-    transition :reset_password, { :active => :active }, :available_to => :key_holder,
-               :params => [ :password, :password_confirmation ]
-
-    transition :approve, { :pending => :active }, :available_to => "User.administrator" do
-      # FIXME: use sweepers
-      ActionController::Base.expire_page("/recipes/atom.xml")
-    end
-
-    transition :request_password_reset, { :pending => :pending }, :new_key => true do
-      UserMailer.deliver_forgot_password(self, lifecycle.key)
-    end
-
-    transition :reset_password, { :pending => :pending }, :available_to => :key_holder,
-               :params => [ :password, :password_confirmation ]
-
-  end
-
 
   has_many :recipes, :dependent => :destroy
   has_many :questions, :dependent => :destroy
@@ -61,6 +31,11 @@ class User < ActiveRecord::Base
 
   def account_active?
     true
+  end
+
+  # alias, omniauth uses nickname for the username
+  def nickname=(s)
+    self.username=s
   end
 
   # --- Hobo Permissions --- #

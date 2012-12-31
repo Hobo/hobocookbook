@@ -68,6 +68,7 @@ gem "hobo_mapstraction", :git => "git://github.com/Hobo/hobo_mapstraction.git"
 
 gem "awesome_print"
 
-gem "recaptcha", :require => "recaptcha/rails"
-
 gem "will_paginate", :git => "git://github.com/Hobo/will_paginate.git"
+
+gem "hobo_omniauth", :path => "/work/hobo_omniauth/"
+gem "omniauth-github"

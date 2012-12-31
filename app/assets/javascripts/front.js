@@ -9,4 +9,5 @@
 //
 //= require application
 //= require hobo_bootstrap
+//= require hobo_omniauth
 //= require_tree ./front

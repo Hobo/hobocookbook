@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311165826) do
+ActiveRecord::Schema.define(:version => 20121212212100) do
 
   create_table "answers", :force => true do |t|
     t.datetime "created_at"
@@ -36,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20120311165826) do
     t.datetime "updated_at"
     t.integer  "position"
   end
+
+  add_index "api_plugins_14", ["name"], :name => "index_api_plugins_14_on_name"
 
   create_table "api_tag_comments", :force => true do |t|
     t.text     "body"
@@ -93,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20120311165826) do
     t.integer  "taglib_id"
   end
 
+  add_index "api_tag_defs_14", ["tag"], :name => "index_api_tag_defs_14_on_tag"
   add_index "api_tag_defs_14", ["taglib_id"], :name => "index_api_tag_defs_14_on_taglib_id"
 
   create_table "api_taglibs", :force => true do |t|
@@ -114,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20120311165826) do
     t.integer  "plugin_id"
   end
 
+  add_index "api_taglibs_14", ["name"], :name => "index_api_taglibs_14_on_name"
   add_index "api_taglibs_14", ["plugin_id"], :name => "index_api_taglibs_14_on_plugin_id"
 
   create_table "comments", :force => true do |t|
@@ -187,10 +192,10 @@ ActiveRecord::Schema.define(:version => 20120311165826) do
     t.boolean  "administrator",                           :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "state",                                   :default => "active"
     t.datetime "key_timestamp"
+    t.string   "uid"
   end
 
-  add_index "users", ["state"], :name => "index_users_on_state"
+  add_index "users", ["uid"], :name => "index_users_on_uid", :unique => true
 
 end
