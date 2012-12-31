@@ -46,22 +46,11 @@
 
     <show-api-tag/>
 
-<%#
-    <!-- <section class="collection-section"> -->
-      <!-- <h3 class="collection-heading">Comments</h3> -->
-
-      <!-- <collection:comments/> -->
-
-      <!-- <section class="add-to-collection" if="&can_create?(@api_tag_def.comments)"> -->
-      <!--   <h3 class="add-form-heading">Add a Comment</h3> -->
-      <!--   <form with="&@api_tag_def.comments.new" owner="api_tag_def" method="post" without-cancel> -->
-      <!--     <field-list: skip="api_tag_def, markdown"/> -->
-      <!--     <submit: label="Add"/> -->
-      <!--   </form> -->
-      <!-- </section> -->
-    <!-- </section> --> %>
-
     <related-tags-summary/>
+
+    <br/>
+    <a href="&@edit_link">Edit this page</a>
+    <disqus identifier="&request.path" />
 
   </content-body:>
 

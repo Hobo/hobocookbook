@@ -333,3 +333,52 @@
      </field-list:>
    </old-signup-form>
  </extend>
+
+<% This tag adds disqus comments to your page.
+
+To use, sign up at disqus.com.
+
+Then add this to your application.dryml, replacing `foo` with the shortname you registered with.
+
+    <extend tag="disqus">
+      <old-disqus shortname="foo"/>
+    </extend>
+
+Then you can simply place the `<disqus/>` tag wherever you want comments.
+
+### Attributes
+
+These attributes are described at: http://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables
+
+- shortname: (required) the shortname you registered on disqus.com with
+- developer: (default=1 if in development mode, 0 otherwise)
+- url: (default is request.url so generally not required)
+- identifier:  (default is this.typed_id)  This is the identifier that disqus will use to determine which comment thread to display.  
+%>
+<def tag="disqus" attrs="shortname, developer, url, identifier">
+  <%
+    raise "shortname required" if shortname.blank?
+    developer = ( developer || Rails.env == 'development'  ? 1 : 0 )
+    url ||= request.url
+    identifier ||= this._?.typed_id || request.path
+    %>
+  <div id="disqus_thread"/>
+  <script type="text/javascript">
+   // put the short name you signed up with here
+    var disqus_shortname = '<%= shortname %>'; 
+    var disqus_developer = '<%= developer %>';
+    var disqus_url = '<%= url %>';
+    var disqus_identifier = '<%= identifier %>';
+    (function() {
+      var dsq = document.createElement('script'); 
+      dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+</def>
+
+
+<extend tag="disqus">
+  <old-disqus shortname="hobo-disqus-test"/>
+</extend>

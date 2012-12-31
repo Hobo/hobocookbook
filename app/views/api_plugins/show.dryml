@@ -16,6 +16,9 @@
       <view:description/>
       <plugin-tags-summary/>
     </div>
+    <br/>
+    <a href="&this.edit_link">Edit this page</a>
+    <disqus identifier="&request.path"/>
   </content:>
 
 </show-page>

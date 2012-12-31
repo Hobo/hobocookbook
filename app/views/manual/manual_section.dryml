@@ -13,6 +13,9 @@
       </div>
       <view with="&@content"/>
     </section>
+    <br/>
+    <a href="&@edit_link">Edit this page</a>
+    <disqus identifier="&request.path" />
   </content:>
 
 </page>
