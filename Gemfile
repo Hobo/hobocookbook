@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 #gem 'will_paginate', '~> 3.0.0'
 
 #gem 'sqlite3'
-gem 'mysql'
+gem 'mysql2'
 
 gem 'yard'
 
