@@ -10,7 +10,7 @@ set :user, "cookbook"
 set :domain, "#{user}@cookbook.hobocentral.net"
 
 set :bundle_cmd, "/opt/ruby-1.8.7-p334/bin/bundle"
-set :rake_cmd, "#{bundle_cmd} exec /opt/ruby-1.8.7-p334/bin/rake"
+set :rake_cmd, "PATH=/opt/ruby-1.8.7-p334/bin:$PATH #{bundle_cmd} exec rake"
 # set :rake_cmd, "/usr/local/rvm/bin/cookbook_rake"
 
 namespace :vlad do
