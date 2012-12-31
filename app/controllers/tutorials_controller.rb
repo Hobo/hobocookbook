@@ -16,7 +16,7 @@ class TutorialsController < ApplicationController
     if tutorial=='agility' || tutorial=='gitorial'
       @edit_link = nil
     else
-      @edit_link  = "https://github.com/Hobo/doc/tutorials/#{tutorial}.markdown"
+      @edit_link  = "https://github.com/Hobo/hobodoc/edit/master/doc/tutorials/#{tutorial}.markdown"
     end
 
     @sidebar = Maruku.new(File.read("#{DOC_ROOT}/tutorials/sidebar.markdown")).to_html.html_safe
