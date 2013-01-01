@@ -81,4 +81,45 @@ namespace :cookbook_transition do
       f.write builder.to_xml
     end
   end
+
+
+  desc "Export the answers"
+  task :export_answers => :environment do
+    builder = Nokogiri::XML::Builder.new(:encoding => 'UTF-8') do |xml|
+      xml.rss('version'=>"2.0",  'xmlns:content'=>"http://purl.org/rss/1.0/modules/content/", 'xmlns:dsq'=>"http://www.disqus.com/", 'xmlns:dc'=>"http://purl.org/dc/elements/1.1/", 'xmlns:wp'=>"http://wordpress.org/export/1.0/") do
+        xml.channel do
+          Question.includes(:answers, :user).find_each do |q|
+            xml.item do
+              xml.title q.subject
+              xml.link "http://staging.hobocentral.net/manual/faq/#{q.to_param}"
+              xml['content'].encoded do
+                xml.cdata q.description
+              end
+              xml['dsq'].thread_identifier "/manual/faq/#{q.to_param}"
+              xml['dsq'].post_date_gmt q.created_at.to_s.gsub(/ UTC$/, '')
+              xml['dsq'].comment_status 'open'
+              q.answers.each do |c|
+                xml['wp'].comment_ do
+                  xml['wp'].comment_id c.id
+                  xml['wp'].comment_author c.user.username
+                  xml['wp'].comment_author_email c.user.email_address
+                  xml['wp'].comment_author_url ''
+                  xml['wp'].comment_author_IP ''
+                  xml['wp'].comment_date_gmt c.created_at.to_s.gsub(/ UTC$/, '')
+                  xml['wp'].comment_content do
+                    xml.cdata c.body
+                  end
+                  xml['wp'].comment_approved 1
+                  xml['wp'].comment_parent 0
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+    File.open("#{Rails.root}/answers.rss", "w") do |f|
+      f.write builder.to_xml
+    end
+  end
 end

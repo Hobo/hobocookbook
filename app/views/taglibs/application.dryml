@@ -114,24 +114,19 @@
 
 <!-- ### Cards ### -->
 
-<extend tag="card" for="User">
-  <old-card>
-    <before-heading:><gravatar size='50' param/></before-heading:>
-    <append-heading:><delete-button label="X"/><transition-buttons/></append-heading:>
-    <after-header:>
-      <div class="recent-recipes"><repeat:recipes.recent join=", "><a/></repeat></div>
-    </after-header:>
-    <count: if-any/>
+<extend tag="card" for="ManualSection">
+  <old-card merge without-body>
+    <heading:>
+      <a href="/manual/#{this.slug}"><%= this.title %></a>
+    </heading:>
   </old-card>
 </extend>
 
-<extend tag="card" for="Question">
-  <old-card merge>
-    <before-heading:><gravatar:user size='50' param/></before-heading:>
-    <append-heading:><if test="&this.user.state=='pending'"> (pending moderation)</if></append-heading:>
-    <body:>
-      <do param="asks">Asks <a:user/>.</do> (<count:answers if-any/><else>No answers - help!</else>)
-    </body:>
+<extend tag="card" for="ManualSubsection">
+  <old-card merge without-body>
+    <heading:>
+      <a href="/manual/#{this.slug}"><%= this.title %></a>
+    </heading:>
   </old-card>
 </extend>
 
@@ -299,6 +294,31 @@
   </div>
 </def>
 
+<def tag="manual-navigation">
+  <% if this.is_a?(ManualSection)
+       section = this
+       subsection = nil
+     else
+       section = this.manual_section
+       subsection = this
+     end %>
+  <div class="well">
+    <navigation current="&section.title" class="nav nav-list">
+      <li class="nav-header"><h4><a href="#{base_url}/manual/toc">Manual</a></h4></li>
+      <repeat with="&ManualSection.visible">
+        <nav-item href="#{base_url}/manual/#{this.slug}"><%= this.title %></nav-item>
+        <ul if="&section.id == this.id" class="nav nav-list">
+          <repeat with="&this.manual_subsections.visible">
+            <li class="#{'active' if this.id==subsection._?.id}">
+              <a href="#{base_url}/manual/#{this.slug}"><%= this.title %></a>
+            </li>
+          </repeat>
+        </ul>
+      </repeat>
+    </navigation>
+  </div>
+</def>
+
 <def tag="user-notes">
   <section param="user-notes">
     <h3 param="collection-heading">User contributed notes</h3>
@@ -330,7 +350,7 @@ To use, sign up at disqus.com.
 Then add this to your application.dryml, replacing `foo` with the shortname you registered with.
 
     <extend tag="disqus">
-      <old-disqus shortname="foo"/>
+      <old-disqus merge shortname="foo"/>
     </extend>
 
 Then you can simply place the `<disqus/>` tag wherever you want comments.
@@ -369,5 +389,5 @@ These attributes are described at: http://help.disqus.com/customer/portal/articl
 
 
 <extend tag="disqus">
-  <old-disqus shortname="hobo-staging"/>
+  <old-disqus merge shortname="hobo-staging"/>
 </extend>

@@ -79,49 +79,11 @@ class ManualController < ApplicationController
   }
 
   def manual_section
-    section      = params[:section].gsub(/[^a-z0-9_\-]/, '')
-    if TITLES[section].nil?
-      filename     = "#{DOC_ROOT}/pages/#{section}.markdown"
-      @title       = section.titleize
-      @subtitles   = nil
-      @edit_link   = "#{DOC_GITHUB}/pages/#{section}.markdown"
-    else
-      filename     = "#{TITLES[section][2]}/#{TITLES[section][1]}"
-      @title       = TITLES[section][0]
-      @subtitles   = SUBTITLES[section].nil? ? nil : ActiveSupport::OrderedHash[*SUBTITLES[section].map {|k,v| [k, v[0]]}.flatten]
-      @edit_link   = "#{TITLES[section][3]}/#{TITLES[section][1]}"
-    end
-    begin
-      @last_update = last_update filename
-      @content = Maruku.new(File.read(filename)).to_html
-      @content = ApiTagDef.linkify(@content) do |tag|
-        "<a href='/tagdef/#{tag.taglib.plugin.name}/#{tag.taglib.name}/#{tag.tag}'>&lt;#{tag.tag}&gt;</a>"
-      end.html_safe
-    rescue
-      redirect_to :action => :index
-    end
-
-
+    @this = ManualSection.find_by_slug(params[:section])
   end
 
   def manual_subsection
-    section      = params[:section].gsub(/[^a-z0-9_\-]/, '')
-    subsection   = params[:subsection].gsub(/[^a-z0-9_\-]/, '')
-    if SUBTITLES[section].nil? || SUBTITLES[section][subsection].nil?
-      redirect_to :action => :index
-      return
-    end
-    filename     = "#{SUBTITLES[section][subsection][2]}/#{SUBTITLES[section][subsection][1]}"
-    @title       = TITLES[section][0]
-    @subtitles   = ActiveSupport::OrderedHash[*SUBTITLES[section].map {|k,v| [k, v[0]]}.flatten]
-    @current_subtitle    = SUBTITLES[section][subsection][0]
-    @content = Maruku.new(File.read(filename)).to_html
-    @content = ApiTagDef.linkify(@content) do |tag|
-      "<a href='/tagdef/#{tag.taglib.plugin.name}/#{tag.taglib.name}/#{tag.tag}'>&lt;#{tag.tag}&gt;</a>"
-    end.html_safe
-    @last_update = last_update filename
-    @edit_link   = "#{SUBTITLES[section][subsection][3]}/#{SUBTITLES[section][subsection][1]}" if SUBTITLES[section][subsection][3]
-    render :manual_subsection
+    @this = ManualSubsection.find_by_slug("#{params[:section]}/#{params[:subsection]}")
   end
 
   def index

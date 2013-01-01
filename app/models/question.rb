@@ -12,6 +12,8 @@ class Question < ActiveRecord::Base
   has_many :answers, :dependent => :destroy
   has_many :recipes, :through => :answers, :uniq => true
 
+  set_search_columns # to none
+
   children :answers
 
   include OwnedModel

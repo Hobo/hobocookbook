@@ -10,6 +10,8 @@ class Comment < ActiveRecord::Base
   
   belongs_to :recipe
 
+  set_search_columns # to none
+
   include OwnedModel
 
 end

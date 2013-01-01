@@ -11,6 +11,11 @@ class QuestionsController < ApplicationController
   index_action :atom, :atom_with_spam
   caches_page :atom, :atom_with_spam
 
+  def show
+    @question = Question.find(params[:id])
+    redirect_to :controller => :manual, :action => :manual_subsection, :section => "faq", :subsection => @question.to_param
+  end
+
   def index; end
 
   index_action :answered, :scope => :with_answers

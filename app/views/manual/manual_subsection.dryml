@@ -1,21 +1,20 @@
 <page title="Manual" full-title="Hobo Manual - #{@title}" without-account-nav>
   <body: class="manual"/>
-  
+
   <aside-content:>
-    <left-navigation with="&ManualController.titles" title="Manual" url="#{base_url}/manual" current="&@title" subtitles="&@subtitles" current-subtitle="&@current_subtitle"/>
+    <manual-navigation/>
   </aside-content:>
-  
+
   <content:>
     <section class="content-body">
       <div class="last-update pull-right">
-        Last updated: <view with="&@last_update"/><br/>
-        <a href="&@edit_link" if="&@edit_link">Edit this page</a>
+        <a href="&@this.edit_link">Edit this page</a>
       </div>
-      <%= @content %>
+      <%=raw @this.body %>
     </section>
     <br/>
-    <a href="&@edit_link">Edit this page</a>
-    <disqus identifier="&request.path" />
+    <a href="&@this.edit_link">Edit this page</a>
+    <disqus identifier="/manual/#{@this.slug}" />
   </content:>
-    
+
 </page>

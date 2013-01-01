@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     timestamps
   end
   attr_accessible :email_address, :username, :nickname
+  set_search_columns
 
   include HoboOmniauth::UserAuth
 

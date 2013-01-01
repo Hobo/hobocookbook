@@ -1,8 +1,82 @@
+require 'pathname'
+
+# assumes we're installing via :path or :git, not gems
+ROOT   = Pathname.new(Hobo.root).realpath.parent
+GITHUB = "https://github.com/Hobo/hobodoc/edit/master"
+
 require "#{Rails.root}/lib/api_doc_loader"
+
+def process_body(md)
+  ApiTagDef.linkify(Maruku.new(md).to_html) do |tag|
+    "<a href='/tagdef/#{tag.taglib.plugin.name}/#{tag.taglib.name}/#{tag.tag}'>&lt;#{tag.tag}&gt;</a>"
+  end
+end
+
+def make_edit_link(filename)
+  Pathname.new(filename)
+  Pathname.new(filename).realpath
+  Pathname.new(filename).realpath.relative_path_from(ROOT)
+  "#{GITHUB}/#{Pathname.new(filename).realpath.relative_path_from(ROOT)}"
+end
+
 namespace :cookbook do
   desc "Load the api by parsing the taglibs in the Hobo plugin"
   task :load_api_docs => :environment do
     ApiDocLoader.load
+  end
+
+  task :load_manual => :environment do
+    slugs = {}
+    generators = []
+    File.read("#{ROOT}/doc/manual/slugs").split.each_with_index { |slug, pos|
+      slugs[slug] = pos
+      generators << slug.gsub('generators/', '') if slug.starts_with?("generators/")
+    }
+    Dir["#{ROOT}/doc/manual/*.markdown"].each do |f|
+      body = File.read(f)
+      title = body.split("\n").first.gsub(/^# /, '')
+      slug = File.basename(f, '.markdown')
+      puts "#{slugs[slug]}: #{slug}: #{title}"
+      ms = ManualSection.find_or_create_by_slug(slug, :body => body, :title => title)
+      ms.body = process_body(body)
+      ms.title = title
+      ms.position = slugs[slug]
+      ms.edit_link = make_edit_link(f)
+      ms.save!
+    end
+    Dir["#{ROOT}/doc/manual/*/*.markdown"].each do |f|
+      body = File.read(f)
+      title = body.split("\n").first.gsub(/^# /, '')
+      section_slug = File.basename(File.dirname(f))
+      section = ManualSection.find_by_slug(section_slug)
+      slug = "#{section_slug}/#{File.basename(f, '.markdown')}"
+      puts "#{slugs[slug]}: #{slug}: #{title}"
+      ms = ManualSubsection.find_or_create_by_slug(slug, :body => body, :title => title)
+      ms.body = process_body(body)
+      ms.title = title
+      ms.position = slugs[slug]
+      ms.manual_section = section
+      ms.edit_link = make_edit_link(f)
+      ms.save!
+    end
+    section = ManualSection.find_by_slug('generators')
+    generators.each do |gen|
+      raw = `bundle exec rails g hobo:#{gen} --help`
+      body = "Generators -- #{gen}\n{: .document-title}\n\n" +
+        raw.gsub(/^  /,"    ").
+        gsub(/^(\w(\w|\s)*):(.*)/) {|s| "\n## #{$1}\n\n    #{$3}\n"}.
+        gsub("#{Rails.root}", ".")
+      title = gen
+      slug = "generators/#{gen}"
+      puts "#{slugs[slug]}: #{slug}: #{title}"
+      ms = ManualSubsection.find_or_create_by_slug(slug, :body => body, :title => title)
+      ms.body = process_body(body)
+      ms.title = title
+      ms.position = slugs[slug]
+      ms.manual_section = section
+      ms.edit_link = "#{GITHUB}/hobo/lib/generators/hobo/#{gen}/#{gen}_generator.rb"
+      ms.save!
+    end
   end
 
   desc "Rebuild agility.markdown"
