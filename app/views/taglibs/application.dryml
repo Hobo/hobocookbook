@@ -260,7 +260,7 @@
      else
        current_plugin = this
      end %>
-  <ul class="nav nav-list">
+  <ul class="nav nav-list well">
    <repeat with="&ApiPlugin.all">
     <% plugin = this %>
     <li><h3><a><%= this.name.titleize %></a></h3></li>
