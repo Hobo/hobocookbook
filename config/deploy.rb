@@ -3,7 +3,7 @@ set :domain,      "cookbook-staging.hobocentral.net"
 # set :domain,      "li285-250.members.linode.com"
 set :deploy_to,   "/home/cookbook20"
 set :repository,  "git://github.com/Hobo/hobocookbook"
-set :revision,    "origin/bootstrap"
+set :revision,    "origin/master"
 set :skip_scm, false
 
 set :user, "cookbook"
