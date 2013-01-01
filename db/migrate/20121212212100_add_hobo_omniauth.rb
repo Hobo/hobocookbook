@@ -9,6 +9,8 @@ class AddHoboOmniauth < ActiveRecord::Migration
     add_index :api_taglibs_14, [:name]
 
     add_index :api_tag_defs_14, [:tag]
+
+    create_table :authorizations
   end
 
   def self.down
