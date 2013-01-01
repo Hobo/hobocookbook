@@ -11,6 +11,10 @@ class RecipesController < ApplicationController
   index_action :atom, :atom_with_spam
   caches_page :atom, :atom_with_spam
 
+  def show
+    @recipe = Recipe.find(params[:id])
+    redirect_to :controller => :tutorials, :tutorial => @recipe.to_param, :action => :show
+  end
 
   def create_for_user
     expire_page :action => :atom
