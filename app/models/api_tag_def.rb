@@ -88,6 +88,23 @@ class ApiTagDef < ActiveRecord::Base
     !(description.blank? && short_description.blank?)
   end
 
+  def self.linkify(text)
+    b = Proc.new do |t|
+      tt=ApiTagDef.find_by_tag($1)
+      if tt.nil?
+        unless %w(def div ul select li td th span br ol img textarea).include?($1)
+          puts "Could not link to #{$1} in #{text}"
+        end
+        t
+      else
+        yield tt
+      end
+    end
+    re = /<code>&lt;([-a-zA-Z0-9]*)[!:]*?\/?&gt;<\/code>/
+    text.gsub(re, &b)
+  end
+
+
   # --- Hobo Permissions --- #
 
   def create_permitted?

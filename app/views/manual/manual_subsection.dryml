@@ -11,7 +11,7 @@
         Last updated: <view with="&@last_update"/><br/>
         <a href="&@edit_link" if="&@edit_link">Edit this page</a>
       </div>
-      <view with="&@content"/>
+      <%= @content %>
     </section>
     <br/>
     <a href="&@edit_link">Edit this page</a>

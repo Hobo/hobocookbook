@@ -20,6 +20,12 @@ class TutorialsController < ApplicationController
     end
 
     @sidebar = Maruku.new(File.read("#{DOC_ROOT}/tutorials/sidebar.markdown")).to_html.html_safe
+
+    @content = Maruku.new(@content).to_html
+
+    @content = ApiTagDef.linkify(@content) do |tag|
+      "<a href='/tagdef/#{tag.taglib.plugin.name}/#{tag.taglib.name}/#{tag.tag}'>&lt;#{tag.tag}&gt;</a>"
+    end.html_safe
   end
 
 end

@@ -92,11 +92,16 @@ class ManualController < ApplicationController
       @edit_link   = "#{TITLES[section][3]}/#{TITLES[section][1]}"
     end
     begin
-      @content     = HoboFields::Types::MarkdownString.new(File.read(filename))
       @last_update = last_update filename
+      @content = Maruku.new(File.read(filename)).to_html
+      @content = ApiTagDef.linkify(@content) do |tag|
+        "<a href='/tagdef/#{tag.taglib.plugin.name}/#{tag.taglib.name}/#{tag.tag}'>&lt;#{tag.tag}&gt;</a>"
+      end.html_safe
     rescue
       redirect_to :action => :index
     end
+
+
   end
 
   def manual_subsection
@@ -110,7 +115,10 @@ class ManualController < ApplicationController
     @title       = TITLES[section][0]
     @subtitles   = ActiveSupport::OrderedHash[*SUBTITLES[section].map {|k,v| [k, v[0]]}.flatten]
     @current_subtitle    = SUBTITLES[section][subsection][0]
-    @content     = HoboFields::Types::MarkdownString.new(File.read(filename))
+    @content = Maruku.new(File.read(filename)).to_html
+    @content = ApiTagDef.linkify(@content) do |tag|
+      "<a href='/tagdef/#{tag.taglib.plugin.name}/#{tag.taglib.name}/#{tag.tag}'>&lt;#{tag.tag}&gt;</a>"
+    end.html_safe
     @last_update = last_update filename
     @edit_link   = "#{SUBTITLES[section][subsection][3]}/#{SUBTITLES[section][subsection][1]}" if SUBTITLES[section][subsection][3]
     render :manual_subsection

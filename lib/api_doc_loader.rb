@@ -107,20 +107,8 @@ module ApiDocLoader
     end
 
     ApiTagDef.all.each do |tag|
-      b = Proc.new do |t|
-        tt=ApiTagDef.find_by_tag($1)
-        if tt.nil?
-          unless %w(def div ul select li td th span br ol img textarea).include?($1)
-            puts "Could not link to #{$1} in #{tag.tag}"
-          end
-          t
-        else
-          Helper.new.link(tt)
-        end
-      end
-      re = /<code>&lt;([-a-zA-Z0-9]*)[!:]*?\/?&gt;<\/code>/
-      tag.short_description = tag.short_description.gsub(re, &b)
-      tag.description = tag.description.gsub(re, &b)
+      tag.short_description = ApiTagDef.linkify(tag.short_description) { |to| Helper.new.link(to) }
+      tag.description = ApiTagDef.linkify(tag.description) { |to| Helper.new.link(to) }
       tag.save!
     end
   end
