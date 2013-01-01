@@ -18,7 +18,7 @@
         <!-- <a href="http://github.com/tablatom/hobocookbook/tree/master" target="github" param="view-source">View Source</a> -->
   <old-page merge content-size="8" without-aside-column>
     <before-main-column:>
-      <a href="https://github.com/Hobo/hobocookbook"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"/></a>
+<%#      <a href="https://github.com/Hobo/hobocookbook"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"/></a> %>
       <div class="span4" param="aside-content">
         <recipe-aside/>
       </div>

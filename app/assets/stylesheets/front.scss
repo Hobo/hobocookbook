@@ -7,14 +7,16 @@
  *= require_self
  *= require hobo_rapid
  *= require hobo_jquery
- *= require hobo_bootstrap
  *= require hobo_bootstrap_ui
  *= require application
  *= require hobo_omniauth
  *= require_tree ./front
 */
 
+@import "bootswatch/united/variables";
+@import "hobo_bootstrap";
+@import "bootswatch/united/bootswatch";
 
 .document-title {
-  @extend .lead;
+  @extend h1;
 }
