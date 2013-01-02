@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212212100) do
+ActiveRecord::Schema.define(:version => 20130101161920) do
 
   create_table "answers", :force => true do |t|
     t.datetime "created_at"
@@ -144,6 +144,32 @@ ActiveRecord::Schema.define(:version => 20121212212100) do
   end
 
   add_index "images", ["recipe_id"], :name => "index_images_on_recipe_id"
+
+  create_table "manual_sections", :force => true do |t|
+    t.string   "title",      :null => false
+    t.text     "body",       :null => false
+    t.string   "slug",       :null => false
+    t.string   "edit_link"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "manual_sections", ["slug"], :name => "index_manual_sections_on_slug"
+
+  create_table "manual_subsections", :force => true do |t|
+    t.string   "title",             :null => false
+    t.text     "body",              :null => false
+    t.string   "slug",              :null => false
+    t.string   "edit_link"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "manual_section_id"
+  end
+
+  add_index "manual_subsections", ["manual_section_id"], :name => "index_manual_subsections_on_manual_section_id"
+  add_index "manual_subsections", ["slug"], :name => "index_manual_subsections_on_slug"
 
   create_table "questions", :force => true do |t|
     t.text     "description"
