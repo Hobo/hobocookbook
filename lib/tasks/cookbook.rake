@@ -80,9 +80,34 @@ namespace :cookbook do
     end
   end
 
+  desc "Load the tutorial pages from markdown in hobo/doc/tutorials/*"
+  task :load_tutorials => :environment do
+    Dir["#{ROOT}/doc/tutorials/*.markdown"].each do |f|
+      body = File.read(f)
+      title = body.split("\n").first.gsub(/^# /, '')
+      slug = File.basename(f, '.markdown')
+      puts "#{slug}: #{title}"
+      ms = Tutorial.find_or_create_by_slug(slug, :body => body, :title => title)
+      ms.body = process_body(body)
+      ms.title = title
+      ms.edit_link = make_edit_link(f)
+      ms.save!
+    end
+    Dir["#{Rails.root}/gitorials/*.markdown"].each do |f|
+      body = File.read(f)
+      title = body.split("\n").first.gsub(/^# /, '')
+      slug = File.basename(f, '.markdown')
+      puts "#{slug}: #{title}"
+      ms = Tutorial.find_or_create_by_slug(slug, :body => body, :title => title)
+      ms.body = process_body(body)
+      ms.title = title
+      ms.edit_link = nil
+      ms.save!
+    end
+  end
+
   desc "Rebuild agility.markdown"
   task :rebuild_agility => :environment do
-    #    GitorialsController::TITLES.each do |dir, desc|
     Gitorial.new("#{Rails.root}/gitorials/agility", "http://github.com/Hobo/agility-gitorial/commit/", "/patches/agility").process.each do |filename, markdown|
       next if markdown==""
       f=open("#{Rails.root}/gitorials/#{filename}", "w")

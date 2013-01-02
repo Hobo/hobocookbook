@@ -1,6 +1,4 @@
 class TutorialsController < ApplicationController
-
-  DOC_ROOT     = `bundle show doc`.strip
   caches_page :show
 
   def index
@@ -8,6 +6,11 @@ class TutorialsController < ApplicationController
   end
 
   def show
+    @this = Tutorial.find_by_slug(params[:tutorial])
+    @sidebar = Tutorial.find_by_slug("sidebar")
+  end
+
+  def foo
     tutorial     = params[:tutorial].gsub(/[^a-z0-9_\-]/, '')
     filename     = "tutorials/#{tutorial}.markdown"
     @content     = HoboFields::Types::MarkdownString.new(File.read("#{DOC_ROOT}/#{filename}"))

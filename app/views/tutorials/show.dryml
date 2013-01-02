@@ -3,21 +3,20 @@
 
   <aside-content:>
     <div class="well">
-      <%= @sidebar %>
+      <%=raw @sidebar.body %>
     </div>
   </aside-content:>
 
   <content:>
     <section class="content-body">
       <div class="last-update pull-right">
-        Last updated: <view with="&@last_update"/><br/>
-        <if test="&@edit_link"><a href="&@edit_link">Edit this page</a></if>
+        <if test="&@this.edit_link"><a href="&@this.edit_link">Edit this page</a></if>
       </div>
-      <%= @content %>
+      <%=raw @this.body %>
     </section>
     <br/>
-    <a href="&@edit_link">Edit this page</a>
-    <disqus identifier="&request.path"/>
+    <if test="&@this.edit_link"><a href="&@this.edit_link">Edit this page</a></if>
+    <disqus identifier="/tutorials/#{@this.slug}"/>
   </content:>
 
 </page>
