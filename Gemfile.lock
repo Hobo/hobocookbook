@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Hobo/hobo.git
-  revision: 81c8bf32cd6e4336d8ce6570294b0e4890b41aad
+  revision: 70cdf92a7a1de40a14cdad534fe20d219b60613c
   specs:
     doc (0.0.1)
     dryml (2.0.0.pre7)
@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: git://github.com/Hobo/hobo_bootstrap.git
-  revision: 854c5ae38bd31a437ed9d9d39c3691b46aa77e48
+  revision: 882d866d2b31fa54112864b6a3ea02990759682f
   specs:
     hobo_bootstrap (2.0.0.pre7)
       bootstrap-sass (~> 2.1)
@@ -75,7 +75,7 @@ GIT
 
 GIT
   remote: git://github.com/Hobo/hobo_paperclip.git
-  revision: 47e37cdb9e55547da3a3fd8c75ba949d846fb215
+  revision: 58e0daabdce95c1a8a0c06daf086a8ee0820842b
   specs:
     hobo_paperclip (0.0.4)
       hobo
