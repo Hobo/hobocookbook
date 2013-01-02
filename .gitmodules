@@ -1,15 +1,3 @@
-[submodule "vendor/plugins/paperclip_with_hobo"]
-	path = vendor/plugins/paperclip_with_hobo
-	url = git://github.com/tablatom/paperclip_with_hobo.git
-[submodule "taglibs/hoboyui"]
-	path = taglibs/hoboyui
-	url = git://github.com/tablatom/hoboyui.git
-[submodule "taglibs/hobo-contrib"]
-	path = taglibs/hobo-contrib
-	url = git://github.com/bryanlarsen/hobo-contrib.git
-[submodule "taglibs/imaginary-dryml"]
-	path = taglibs/imaginary-dryml
-	url = git://github.com/imaginary-cloud/Imaginary-DRYML.git
 [submodule "gitorials/agility"]
 	path = gitorials/agility
 	url = git://github.com/Hobo/agility-gitorial.git
