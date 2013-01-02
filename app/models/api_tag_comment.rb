@@ -14,6 +14,8 @@ class ApiTagComment < ActiveRecord::Base
 
   belongs_to :api_tag_def
 
+  set_search_columns #none
+
   include OwnedModel
 
 end

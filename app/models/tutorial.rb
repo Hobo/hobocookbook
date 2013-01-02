@@ -11,6 +11,7 @@ class Tutorial < ActiveRecord::Base
     timestamps
   end
   attr_accessible :title, :body, :slug, :edit_link, :position
+  set_search_columns :title, :body
 
   scope :visible, lambda { where("position IS NOT NULL").order_by("position") }
 

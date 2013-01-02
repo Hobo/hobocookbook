@@ -11,6 +11,7 @@ class Answer < ActiveRecord::Base
   belongs_to :recipe
   belongs_to :question
 
+  set_search_columns #none
   include OwnedModel
 
 end

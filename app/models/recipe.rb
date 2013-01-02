@@ -16,6 +16,8 @@ class Recipe < ActiveRecord::Base
   children :comments, :images
 
   set_default_order "updated_at desc"
+
+  set_search_columns #none
   
   # has_many :taggings
   # has_many :tags, :through => :taggings
