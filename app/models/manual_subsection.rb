@@ -4,7 +4,7 @@ class ManualSubsection < ActiveRecord::Base
 
   fields do
     title :string, :null => false
-    body  :html, :null => false
+    body  :text, :null => false
     slug  :string, :index => true, :null => false
     edit_link :string
     position  :integer

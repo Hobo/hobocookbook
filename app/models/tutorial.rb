@@ -4,7 +4,7 @@ class Tutorial < ActiveRecord::Base
 
   fields do
     title :string, :null => false
-    body  :html, :null => false
+    body  :text, :null => false
     slug  :string, :null => false, :index => true
     edit_link :string
     position  :integer
