@@ -53,5 +53,7 @@ module Hobocookbook
     config.action_controller.page_cache_directory = "#{Rails.root}/public/cache"
 
     config.active_record.whitelist_attributes = true
+
+    config.hobo.dont_emit_deprecated_routes = true
   end
 end
