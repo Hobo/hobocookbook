@@ -25,6 +25,7 @@ namespace :cookbook do
     ApiDocLoader.load
   end
 
+  desc "Load the manual pages from markdown in hobo/doc/manual/* and autogenerate generator man pages"
   task :load_manual => :environment do
     slugs = {}
     generators = []
