@@ -133,18 +133,15 @@ namespace :cookbook do
 
   desc "git pull all plugins/submodules (except for non-Hobo project)"
   task :pull_all => :environment do
-    ['vendor/plugins/paperclip_with_hobo', 'public/patches/agility', 'taglibs/hoboyui', 'taglibs/hobo-contrib', 'taglibs/imaginary-dryml'].each {|sub|
+    ['public/patches/agility'].each {|sub|
       sh "cd #{sub} && git fetch origin && git checkout origin/master"
     }
-    #sh 'cd taglibs/hobo-jquery && git fetch origin && git checkout origin/rails3'
-    #sh 'cd vendor/hobo13 && git fetch origin && git checkout origin/rails3'
-    #sh "cd vendor/plugins/hobo && git fetch origin && git checkout origin/1-0-stable"
     sh "rm -rf gitorials/agility ; git submodule update gitorials/agility ; cd gitorials/agility && git checkout -f origin/master"
     sh " bundle update hobo_support hobo_fields dryml hobo hobo_rapid hobo_clean hobo_clean_admin hobo_jquery hobo_jquery hobo_jquery_ui hobo_tree_table select_one_or_new_dialog hobo_simple_color hobo_tokeninput hobo_data_tables hobo_bootstrap hobo_mapstraction hobo_clean_sidemenu hobo_omniauth --source hobo"
   end
 
   desc "do all update tasks"
-  task :update => [:environment, :pull_all, :load_api_docs, :rebuild_agility, :rebuild_generator_docs] do
+  task :update => [:environment, :pull_all, :load_api_docs, :rebuild_agility, :load_tutorials, :load_manual] do
     true
   end
 end
