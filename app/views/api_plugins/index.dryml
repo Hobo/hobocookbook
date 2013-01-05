@@ -8,6 +8,7 @@
     <section class="content-header">
     </section>
     <section class="content-body">
+      <h1>Tag Libraries</h1>
       <collection>
         <h2><a><%= this.name.titleize %></a></h2>
         <view:short-description/>
