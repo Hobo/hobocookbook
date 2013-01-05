@@ -5,7 +5,7 @@ class ManualSection < ActiveRecord::Base
 
   fields do
     title :string, :null => false
-    body  :text, :null => false
+    body  :text, :null => false, :limit => 1.megabyte
     slug  :string, :null => false, :index => true
     edit_link :string
     position  :integer
