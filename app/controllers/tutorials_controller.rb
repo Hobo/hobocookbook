@@ -2,7 +2,7 @@ class TutorialsController < ApplicationController
   caches_page :show
 
   def index
-    redirect_to :action => "show", :tutorial => "toc"
+    redirect_to :action => "show", :tutorial => "recipes"
   end
 
   def show
