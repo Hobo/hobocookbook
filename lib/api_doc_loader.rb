@@ -84,7 +84,7 @@ module ApiDocLoader
       plugin.name = mod.name.underscore
       puts "**** #{plugin.name}"
       plugin.position = position+1
-      plugin.edit_link_base = mod::EDIT_LINK_BASE
+      plugin.edit_link_base = mod::EDIT_LINK_BASE.gsub(%r(https?://github.com/),'/github/')
       readme_file = Dir["#{plugin.dir}/README*"].first
       plugin.edit_link = File.join(plugin.edit_link_base, File.basename(readme_file))
       readme = File.read(readme_file)

@@ -15,6 +15,8 @@ Hobocookbook::Application.routes.draw do
   match 'plugins' => "plugins#index", :as => 'plugins'
   match 'plugins/:plugin' => "plugins#show", :as => 'plugin'
 
+  match 'github/*uri' => 'github#github', :format => false
+
   #map.site_search  'search', :controller => 'front', :action => 'search'
 
 #  map.homepage '', :controller => 'front', :action => 'index'

@@ -2,7 +2,7 @@ require 'pathname'
 
 # assumes we're installing via :path or :git, not gems
 ROOT   = Pathname.new(Hobo.root).realpath.parent
-GITHUB = "https://github.com/Hobo/hobodoc/edit/master"
+GITHUB = "/github/Hobo/hobodoc/edit/master"
 
 require "#{Rails.root}/lib/api_doc_loader"
 
