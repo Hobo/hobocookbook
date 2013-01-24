@@ -54,7 +54,7 @@ namespace :vlad do
     run " cd #{current_release}; RAILS_ENV=production #{rake_cmd} assets:precompile"
   end
 
-  remote_task :update, :roles => :app do
+  remote_task :finish_deployment, :roles => :app do
     Rake::Task["vlad:bundle_install"].invoke
     Rake::Task["vlad:precompile_assets"].invoke
     Rake::Task["vlad:copy_config_files"].invoke
@@ -63,4 +63,5 @@ namespace :vlad do
     Rake::Task["vlad:update_cookbook"].invoke
   end
 
+  remote_task :update_symlinks => :finish_deployment
 end
