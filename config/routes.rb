@@ -11,6 +11,7 @@ Hobocookbook::Application.routes.draw do
   match 'tagdef/:plugin/:taglib/:tag/:for' => 'api_tag_defs#tagdef', :as => 'tagdef_for'
 
   match 'tutorials' => 'tutorials#index', :as => 'tutorials'
+  match 'tutorials/screencast' => 'tutorials#screencast', :as => 'tutorial'
   match 'tutorials/:tutorial' => 'tutorials#show', :as => 'tutorial'
 
   match 'plugins' => "plugins#index", :as => 'plugins'

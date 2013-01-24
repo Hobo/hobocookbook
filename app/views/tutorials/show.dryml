@@ -1,4 +1,4 @@
-<page title="Tutorials" full-title="Hobo Tutorials - #{@title}" without-account-nav>
+<page title="Tutorials" full-title="Hobo Tutorials - #{@this.title}" without-account-nav>
   <body: class="tutorial"/>
 
   <aside-content:>
