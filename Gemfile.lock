@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Hobo/hobo.git
-  revision: 4326434b46fc5c76749ecb6a11ce18a9ea390702
+  revision: 399abadd67630a38ba9e2953a616990b4f997444
   specs:
     doc (0.0.1)
     dryml (2.0.0.pre8)
@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: git://github.com/Hobo/hobo_bootstrap.git
-  revision: fc971ba07990c4dfad9f337d64380f24f42d9be1
+  revision: e00a8a3d0c1a73283ece4df8225dad1b50b5aef8
   specs:
     hobo_bootstrap (2.0.0.pre8)
       bootstrap-sass (~> 2.1)
