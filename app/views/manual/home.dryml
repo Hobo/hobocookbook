@@ -1,0 +1,48 @@
+<page full-title="Hobo" title="Hobo" without-account-nav content-size="12" without-aside-content>
+
+  <content:>
+    <section class="content-body">
+      <div class="hero-unit">
+        <image src="hobo-logo.png"/><br/>
+        We love making web apps with <strong>Ruby</strong> and <strong>Rails</strong>. <br />
+        Less time constructing, more time <em>creating</em>. <br/>
+        Less code, more <em>fun</em>.
+      </div>
+    </section>
+  </content:>
+  <after-container:>
+    <div class="container">
+      <div class="row">
+        <div class="span4">
+          <%=raw @left.body %>
+          <br/>
+          <a href="&@left.edit_link">(Edit)</a>
+        </div>
+        <div id="gallery-section" class="span4">
+          <%=raw @middle.body %>
+          <br/>
+          <div id="gallery-carousel" class="carousel slide">
+            <div class="carousel-inner">
+            </div>
+            <a class="carousel-control left" href="#gallery-carousel" data-slide="prev">&lsaquo;</a>
+            <a class="carousel-control right" href="#gallery-carousel" data-slide="next">&rsaquo;</a>
+          </div>
+          <a href="&@middle.edit_link">(Edit)</a>
+        </div>
+        <div class="span4">
+          <%=raw @right.body %>
+          <br/>
+          <a href="&@right.edit_link">(Edit)</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="span12 footer">
+          <div class="pull-right">The Hobo project is generously sponsored by <a href="http://barquin.com"><image border="0" src="barquin-logo.png"/></a></div>
+        </div>
+      </div>
+    </div>
+  </after-container:>
+
+</page>

@@ -41,6 +41,7 @@ namespace :vlad do
 
   remote_task :copy_config_files, :roles => :app do
     run "cp -r #{shared_path}/config/* #{current_release}/config/"
+    run "ln -sf #{shared_path}/public/* #{current_release}/public/"
   end
 
   desc 'bundle install --deployment'

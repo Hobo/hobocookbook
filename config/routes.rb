@@ -1,8 +1,9 @@
 Hobocookbook::Application.routes.draw do
-  root :to => 'front#index', :as => 'homepage'
+  root :to => 'manual#home', :as => 'home'
 
   match 'search' => 'front#search', :as => 'site_search'
   match 'manual' => 'manual#index'
+  match 'manual/home' => 'manual#home'
   match 'manual/:section' => 'manual#manual_section', :as => 'manual_section'
   match 'manual/:section/:subsection' => 'manual#manual_subsection'
 
