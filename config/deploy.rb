@@ -44,9 +44,9 @@ namespace :vlad do
     run "ln -sf #{shared_path}/public/* #{current_release}/public/"
   end
 
-  desc 'bundle install --deployment'
+  desc 'bundle install --deployment --without development'
   remote_task :bundle_install do
-    run " cd #{current_release}; RAILS_ENV=production #{bundle_cmd} install --deployment"
+    run " cd #{current_release}; RAILS_ENV=production #{bundle_cmd} install --deployment --without 'development test'"
   end
 
   desc 'precompile assets'
