@@ -326,6 +326,7 @@ DEPENDENCIES
   omniauth-github
   paperclip (~> 2.7)
   quiet_assets
+  rack (= 1.4.4)
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
   select_one_or_new_dialog!
