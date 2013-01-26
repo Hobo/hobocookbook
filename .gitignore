@@ -10,3 +10,6 @@ app/views/taglibs/auto
 public/img/*
 rails3app
 .idea/
+config/hobo_routes.rb
+git-path
+git-version
