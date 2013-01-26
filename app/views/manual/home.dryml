@@ -13,7 +13,7 @@
   <after-container:>
     <div class="container">
       <div class="row">
-        <div class="span4">
+        <div id="about-section" class="span4">
           <%=raw @left.body %>
           <br/>
           <a href="&@left.edit_link">(Edit)</a>
@@ -29,7 +29,7 @@
           </div>
           <a href="&@middle.edit_link">(Edit)</a>
         </div>
-        <div class="span4">
+        <div id="dive-in-section" class="span4">
           <%=raw @right.body %>
           <br/>
           <a href="&@right.edit_link">(Edit)</a>

@@ -23,5 +23,6 @@ $(document).ready(function() {
      $("#gallery-carousel div.item:first").addClass("active");
      $("#gallery-carousel").carousel();
      $("#gallery-section .document-title").wrap("<a href='/manual/gallery'></a>");
+     $("#about-section .document-title").wrap("<a href='/manual/about'></a>");
   }
 });
