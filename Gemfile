@@ -38,10 +38,12 @@ gem "jquery-rails"
 gem "jquery-ui-themes"
 
 group :development do
-  gem "vlad", :require => false
-  gem "vlad-git", :git => "git://github.com/bryanlarsen/vlad-git.git", :require => false
   gem 'sqlite3'
 end
+
+# not really required on server, but the Rakefile require's them, so might as well install them
+gem "vlad", :require => false
+gem "vlad-git", :git => "git://github.com/bryanlarsen/vlad-git.git", :require => false
 
 # Gems used only for assets and not required
 # in production environments by default.
