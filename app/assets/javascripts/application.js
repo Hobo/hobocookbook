@@ -21,7 +21,7 @@ $(document).ready(function() {
          $("<div class='item'></div>").append($(this)));
      });
      $("#gallery-carousel div.item:first").addClass("active");
-     $("#gallery-carousel").carousel();
+     $("#gallery-carousel").carousel({interval: 10000});
      $("#gallery-section .document-title").wrap("<a href='/manual/gallery'></a>");
      $("#about-section .document-title").wrap("<a href='/manual/about'></a>");
   }

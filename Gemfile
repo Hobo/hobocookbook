@@ -40,6 +40,7 @@ gem "jquery-ui-themes"
 group :development do
   gem "vlad", :require => false
   gem "vlad-git", :git => "git://github.com/bryanlarsen/vlad-git.git", :require => false
+  gem 'sqlite3'
 end
 
 # Gems used only for assets and not required
