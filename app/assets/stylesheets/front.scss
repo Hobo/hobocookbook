@@ -24,3 +24,14 @@
 .hero-unit {
   background-color: #EEEEEE;
 }
+
+
+/* Make sure the arrows stay always at the same height, even if pictures have different sizes */
+#gallery-carousel .carousel-control {
+  top: 120px;
+}
+/* Make the gallery pictures stay in the center, regardless of the screen size */
+#gallery-carousel img{
+  display: block;
+  margin:0 auto;
+}
