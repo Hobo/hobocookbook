@@ -24,7 +24,7 @@ namespace :vlad do
     run " cd #{current_release}; RAILS_ENV=production #{rake_cmd} cookbook:load_api_docs"
     run " cd #{current_release}; RAILS_ENV=production #{rake_cmd} cookbook:load_manual"
     run " cd #{current_release}; RAILS_ENV=production #{rake_cmd} cookbook:load_tutorials"
-#    run " cd #{current_release}; RAILS_ENV=production #{rake_cmd} cookbook:rebuild_generator_docs"
+    run " cd #{current_release}; RAILS_ENV=production #{rake_cmd} cookbook:load_blog"
   end
 
   desc 'update secret in config/environment.rb'

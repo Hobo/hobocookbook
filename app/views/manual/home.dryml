@@ -8,6 +8,8 @@
         Less time constructing, more time <em>creating</em>. <br/>
         Less code, more <em>fun</em>.
       </div>
+
+      <p>Read the latest blog entry: <do with="&Blog.first"><a href="&blog_path(this)"><%= this.title %></a></do></p>
     </section>
   </content:>
   <after-container:>

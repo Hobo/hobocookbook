@@ -22,7 +22,7 @@ $(document).ready(function() {
      });
      $("#gallery-carousel div.item:first").addClass("active");
      $("#gallery-carousel").carousel({interval: 10000});
-     $("#gallery-section .document-title").wrap("<a href='/manual/gallery'></a>");
-     $("#about-section .document-title").wrap("<a href='/manual/about'></a>");
+     $("#gallery-section .document-title:first").wrap("<a href='/manual/gallery'></a>");
+     $("#about-section .document-title:first").wrap("<a href='/manual/about'></a>");
   }
 });

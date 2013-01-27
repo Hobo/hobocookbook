@@ -106,6 +106,24 @@ namespace :cookbook do
     end
   end
 
+  desc "Load the blog pages from markdown in hobo/doc/blog/*"
+  task :load_blog => :environment do
+    Dir["#{ROOT}/doc/blog/*.markdown"].each do |f|
+      all = File.read(f)
+      meta, body = all.split("\n---\n")
+      meta = YAML::load(meta)
+      slug = File.basename(f, '.markdown').sub("-", "/").sub("-", "/")
+      puts slug
+      blog = Blog.find_or_create_by_slug(slug, :body => body, :metadata => meta, :title => meta['title'])
+      blog.body = process_body(body)
+      blog.title = meta['title']
+      blog.metadata = meta
+      blog.edit_link = make_edit_link(f)
+      blog.created_at = meta['date']
+      blog.save!
+    end
+  end
+
   desc "Rebuild agility.markdown"
   task :rebuild_agility => :environment do
     Gitorial.new("#{Rails.root}/gitorials/agility", "http://github.com/Hobo/agility-gitorial/commit/", "/patches/agility").process.each do |filename, markdown|
@@ -141,7 +159,7 @@ namespace :cookbook do
   end
 
   desc "do all update tasks"
-  task :update => [:environment, :pull_all, :load_api_docs, :rebuild_agility, :load_tutorials, :load_manual] do
+  task :update => [:environment, :pull_all, :load_api_docs, :rebuild_agility, :load_tutorials, :load_manual, :load_blog] do
     true
   end
 end

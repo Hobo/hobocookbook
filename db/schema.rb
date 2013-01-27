@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130102011537) do
+ActiveRecord::Schema.define(:version => 20130126140723) do
 
   create_table "answers", :force => true do |t|
     t.datetime "created_at"
@@ -121,6 +121,18 @@ ActiveRecord::Schema.define(:version => 20130102011537) do
   add_index "api_taglibs_14", ["name"], :name => "index_api_taglibs_14_on_name"
   add_index "api_taglibs_14", ["plugin_id"], :name => "index_api_taglibs_14_on_plugin_id"
 
+  create_table "blogs", :force => true do |t|
+    t.string   "title",                         :null => false
+    t.text     "body",       :limit => 1048576, :null => false
+    t.string   "slug",                          :null => false
+    t.text     "metadata"
+    t.string   "edit_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blogs", ["slug"], :name => "index_blogs_on_slug"
+
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.boolean  "markdown"
@@ -146,9 +158,9 @@ ActiveRecord::Schema.define(:version => 20130102011537) do
   add_index "images", ["recipe_id"], :name => "index_images_on_recipe_id"
 
   create_table "manual_sections", :force => true do |t|
-    t.string   "title",      :null => false
-    t.text     "body",       :null => false
-    t.string   "slug",       :null => false
+    t.string   "title",                         :null => false
+    t.text     "body",       :limit => 1048576, :null => false
+    t.string   "slug",                          :null => false
     t.string   "edit_link"
     t.integer  "position"
     t.datetime "created_at"
@@ -158,9 +170,9 @@ ActiveRecord::Schema.define(:version => 20130102011537) do
   add_index "manual_sections", ["slug"], :name => "index_manual_sections_on_slug"
 
   create_table "manual_subsections", :force => true do |t|
-    t.string   "title",             :null => false
-    t.text     "body",              :null => false
-    t.string   "slug",              :null => false
+    t.string   "title",                                :null => false
+    t.text     "body",              :limit => 1048576, :null => false
+    t.string   "slug",                                 :null => false
     t.string   "edit_link"
     t.integer  "position"
     t.datetime "created_at"
@@ -209,9 +221,9 @@ ActiveRecord::Schema.define(:version => 20130102011537) do
   end
 
   create_table "tutorials", :force => true do |t|
-    t.string   "title",      :null => false
-    t.text     "body",       :null => false
-    t.string   "slug",       :null => false
+    t.string   "title",                         :null => false
+    t.text     "body",       :limit => 1048576, :null => false
+    t.string   "slug",                          :null => false
     t.string   "edit_link"
     t.integer  "position"
     t.datetime "created_at"

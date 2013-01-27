@@ -1,0 +1,32 @@
+<page full-title="Hobo Blog - Index #{params[:slug]}" title="Blog" without-account-nav>
+  <body: class="blog"/>
+
+  <aside-content:>
+    <blog-aside/>
+  </aside-content:>
+
+  <content:>
+    <repeat>
+      <div>
+        <h3><a href="#{blog_path(this.slug)}"><%= this.title %></a></h3>
+        <h4><small>Posted by <%= this.metadata['author'] %> on <%= this.metadata['date'].to_date %></small></h4>
+        <h4><small><a href="#{blog_path(this.slug)}#disqus_thread"><%= this.title %></a></small></h4>
+      </div>
+    </repeat>
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hobo-staging'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+  </content:>
+
+</page>
+

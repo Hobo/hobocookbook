@@ -17,7 +17,18 @@ Hobocookbook::Application.routes.draw do
   match 'plugins' => "plugins#index", :as => 'plugins'
   match 'plugins/:plugin' => "plugins#show", :as => 'plugin'
 
-  match 'github/*uri' => 'github#github', :format => false
+  match 'github/*uri' => 'github#github', :format => false, :as => 'github'
+
+  match 'blog/feed' => redirect('/blog.atom')
+  match 'blog/comments/feed' => redirect('http://hobo-staging.disqus.com/latest.rss')
+  match 'blog/*slug' => 'blog#blog', :as => 'blog'
+  match 'blog' => 'blog#index', :as => 'blogs'
+
+  # old routes from hobocentral.net
+  match 'about' => redirect('/manual/about')
+  match 'gallery' => redirect('/manual/gallery')
+  match 'books' => redirect('/manual/books')
+  match 'community' => redirect('/manual/community')
 
   #map.site_search  'search', :controller => 'front', :action => 'search'
 

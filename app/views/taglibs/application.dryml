@@ -67,6 +67,7 @@
     <nav-item href="#{base_url}/tutorials">Tutorials</nav-item>
     <nav-item href="#{base_url}/manual"   >Manual</nav-item>
     <nav-item with="&ApiPlugin"           >Taglibs</nav-item>
+    <nav-item href="#{base_url}/blog"     >Blog</nav-item>
   </navigation>
 </def>
 
@@ -131,6 +132,13 @@
   <old-card merge>
     <heading:><a href="/tutorials/#{this.slug}"><%= this.title %></a></heading:>
     <body:><a href="/tutorials/#{this.slug}">tutorials/<%= this.slug %></a></body:>
+  </old-card>
+</extend>
+
+<extend tag="card" for="Blog">
+  <old-card merge>
+    <heading:><a href="/blog/#{this.slug}"><%= this.title %></a></heading:>
+    <body:><a href="/blog/#{this.slug}">blog/<%= this.slug %></a></body:>
   </old-card>
 </extend>
 
@@ -238,6 +246,18 @@
           </repeat>
         </ul>
       </repeat>
+    </navigation>
+  </div>
+</def>
+
+<def tag="blog-aside">
+  <div class="well">
+    <navigation class="nav nav-list">
+      <repeat with="&Date.today.year.downto(2006)">
+        <nav-item href="/blog/#{this}"><strong><%= this %></strong></nav-item>
+      </repeat>
+      <nav-item href="/blog.atom"><strong>Entries Feed</strong></nav-item>
+      <nav-item href="http://hobo-staging.disqus.com/latest.rss"><strong>Comments Feed</strong></nav-item>
     </navigation>
   </div>
 </def>

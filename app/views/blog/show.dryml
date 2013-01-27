@@ -1,0 +1,30 @@
+<page full-title="Hobo Blog - #{this.title}" title="Blog" without-account-nav>
+  <body: class="blog"/>
+
+  <aside-content:>
+    <blog-aside/>
+  </aside-content:>
+
+  <content:>
+    <section class="content-body">
+      <h1><a href="&blog_path(this.slug)"><%= this.title %></a></h1>
+      <h1><small>Posted by <%= this.metadata['author'] %> on <%= this.metadata['date'].to_date %></small></h1>
+      <%=raw @this.body %>
+    </section>
+    <if:previous>
+      <div class="pull-left">
+        <a href="&blog_path(this)">&laquo;<%= this.title %></a>
+      </div>
+    </if:previous>
+    <if:next>
+      <div class="pull-right">
+        <a href="&blog_path(this)"><%= this.title %>&raquo;</a>
+      </div>
+    </if:next>
+    <br/>
+    <br/>
+    <a href="&@this.edit_link">(edit)</a>
+    <disqus identifier="&@this.metadata['wordpress_id'] ? 'hobo-staging-'+@this.metadata['wordpress_id'].to_s : '/blog/'+@this.slug" />
+  </content:>
+
+</page>
