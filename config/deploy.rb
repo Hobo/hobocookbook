@@ -42,6 +42,7 @@ namespace :vlad do
   remote_task :copy_config_files, :roles => :app do
     run "cp -r #{shared_path}/config/* #{current_release}/config/"
     run "ln -sf #{shared_path}/public/* #{current_release}/public/"
+    run "rm -f #{current_release}/config.ru"  # passenger behaves better without a config.ru
   end
 
   desc 'bundle install --deployment --without development'
