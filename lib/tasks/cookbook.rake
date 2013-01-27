@@ -112,7 +112,7 @@ namespace :cookbook do
       all = File.read(f)
       meta, body = all.split("\n---\n")
       meta = YAML::load(meta)
-      slug = File.basename(f, '.markdown').sub("-", "/").sub("-", "/")
+      slug = File.basename(f, '.markdown').sub("-", "/").sub("-", "/").sub("-", "/")
       puts slug
       blog = Blog.find_or_create_by_slug(slug, :body => body, :metadata => meta, :title => meta['title'])
       blog.body = process_body(body)

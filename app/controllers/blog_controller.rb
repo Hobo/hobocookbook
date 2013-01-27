@@ -12,7 +12,7 @@ class BlogController < ApplicationController
   end
 
   def blog
-    params[:slug] = params[:slug].chomp("/").gsub("/", "-").sub("-", "/").sub("-", "/")
+    params[:slug] = params[:slug].chomp("/").gsub("/", "-").sub("-", "/").sub("-", "/").sub("-", "/")
     if params[:slug].starts_with?("category-")
       category = params[:slug].gsub("category-","").titleize
       @this = Blog.all.select {|blog| blog.metadata['categories'].include?(category)}

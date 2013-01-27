@@ -24,7 +24,7 @@
     <br/>
     <br/>
     <a href="&@this.edit_link">(edit)</a>
-    <disqus identifier="&@this.metadata['wordpress_id'] ? 'hobo-staging-'+@this.metadata['wordpress_id'].to_s : '/blog/'+@this.slug" />
+    <disqus url="http://hobocentral.net/blog/#{@this.slug}/" identifier="" />
   </content:>
 
 </page>
