@@ -20,7 +20,9 @@ Hobocookbook::Application.routes.draw do
   match 'github/*uri' => 'github#github', :format => false, :as => 'github'
 
   match 'blog/feed' => redirect('/blog.atom')
+  match 'blog/feed/atom' => redirect('/blog.atom')
   match 'blog/comments/feed' => redirect('http://hobo-staging.disqus.com/latest.rss')
+  match 'blog/comments/feed/atom' => redirect('http://hobo-staging.disqus.com/latest.rss')
   match 'blog/*slug' => 'blog#blog', :as => 'blog'
   match 'blog' => 'blog#index', :as => 'blogs'
 
@@ -29,6 +31,8 @@ Hobocookbook::Application.routes.draw do
   match 'gallery' => redirect('/manual/gallery')
   match 'books' => redirect('/manual/books')
   match 'community' => redirect('/manual/community')
+  match 'forum' => redirect('/manual/community')
+  match 'api_taglibs' => redirect('/api_plugins')
 
   #map.site_search  'search', :controller => 'front', :action => 'search'
 
