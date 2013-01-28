@@ -40,6 +40,7 @@ namespace :vlad do
   end
 
   remote_task :copy_config_files, :roles => :app do
+    run "ln -sf #{shared_path}/log #{current_release}/log"
     run "cp -r #{shared_path}/config/* #{current_release}/config/"
     run "ln -sf #{shared_path}/public/* #{current_release}/public/"
     run "rm -f #{current_release}/config.ru"  # passenger behaves better without a config.ru
@@ -56,9 +57,9 @@ namespace :vlad do
   end
 
   remote_task :finish_deployment, :roles => :app do
+    Rake::Task["vlad:copy_config_files"].invoke
     Rake::Task["vlad:bundle_install"].invoke
     Rake::Task["vlad:precompile_assets"].invoke
-    Rake::Task["vlad:copy_config_files"].invoke
     Rake::Task["vlad:save_version"].invoke
     Rake::Task["vlad:update_secret"].invoke
     Rake::Task["vlad:update_cookbook"].invoke
