@@ -4,7 +4,7 @@ module ApiDocLoader
 
   def self.markdownify(md)
     if md
-      md.gsub!(/^{\.(.+)}$/, '{: .\1}') #maruku to kramdown format fixup
+      md.gsub!(/^\{\.(.+)\}$/, '{: .\1}') #maruku to kramdown format fixup
       Kramdown::Document.new(md).to_html
     else
       ""

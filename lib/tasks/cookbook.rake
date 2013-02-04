@@ -7,7 +7,7 @@ GITHUB = "/github/Hobo/hobodoc/edit/master"
 require "#{Rails.root}/lib/api_doc_loader"
 
 def process_body(md)
-  md.gsub!(/^{\.(.+)}$/, '{: .\1}')  #maruku to kramdown format fixup
+  md.gsub!(/^\{\.(.+)\}$/, '{: .\1}')  #maruku to kramdown format fixup
   ApiTagDef.linkify(Kramdown::Document.new(md).to_html) do |tag|
     "<a href='/tagdef/#{tag.taglib.plugin.name}/#{tag.taglib.name}/#{tag.tag}'>&lt;#{tag.tag}&gt;</a>"
   end
