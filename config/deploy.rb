@@ -56,6 +56,11 @@ namespace :vlad do
     run " cd #{current_release}; RAILS_ENV=production #{rake_cmd} assets:precompile"
   end
 
+  desc 'remove log to work around vlad brokenness'
+  remote_task :remove_log do
+    run "rm -rf #{current_release}/log"
+  end
+
   remote_task :finish_deployment, :roles => :app do
     Rake::Task["vlad:copy_config_files"].invoke
     Rake::Task["vlad:bundle_install"].invoke
@@ -63,6 +68,7 @@ namespace :vlad do
     Rake::Task["vlad:save_version"].invoke
     Rake::Task["vlad:update_secret"].invoke
     Rake::Task["vlad:update_cookbook"].invoke
+    Rake::Task["vlad:remove_log"].invoke
   end
 
   remote_task :update_symlinks => :finish_deployment
