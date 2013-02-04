@@ -15,7 +15,7 @@ group :development do
   gem 'quiet_assets'
 end
 
-gem "maruku"
+gem "kramdown"
 
 #temp workaround for hash_secret issue see https://groups.google.com/forum/#!topic/hobousers/dS4VT_lyVIY
 gem "paperclip", "~> 2.7"

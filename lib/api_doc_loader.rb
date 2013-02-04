@@ -2,6 +2,16 @@ require 'English'
 
 module ApiDocLoader
 
+  def self.markdownify(md)
+    if md
+      md.gsub!(/^{\.(.+)}$/, '{: .\1}') #maruku to kramdown format fixup
+      Kramdown::Document.new(md).to_html
+    else
+      ""
+    end
+  end
+
+
   #  TAGLIB_HOME = "#{RAILS_ROOT}/vendor/plugins/hobo/hobo/taglibs"
 #  TAGLIB_HOME = "#{Rails.root}/vendor/hobo13/hobo/lib/hobo/rapid/taglibs"
 
@@ -9,7 +19,7 @@ module ApiDocLoader
 
 
     def api_taglib(api_plugin)
-      ApiTaglib.new(:name => name, :short_description => comment_intro_html, :description => comment_rest_html, :plugin => api_plugin)
+      ApiTaglib.new(:name => name, :short_description => ApiDocLoader.markdownify(comment_intro), :description => ApiDocLoader.markdownify(comment_rest), :plugin => api_plugin)
     end
 
     def api_tagdefs(api_taglib, edit_link)
@@ -38,8 +48,8 @@ module ApiDocLoader
       t.taglib = owner
       t.edit_link = edit_link
       t.attributes = { :tag => name, :extension => extension?, :polymorphic => polymorphic?,
-                       :short_description => comment_intro_html,
-                       :description => comment_rest_html,
+                       :short_description => ApiDocLoader.markdownify(comment_intro),
+                       :description => ApiDocLoader.markdownify(comment_rest),
                        :for_type => for_type,
                        :tag_attributes => attributes, :tag_parameters => parameters,
                        :merge_params => merge_params, :merge_attrs => merge_attrs,
@@ -75,6 +85,7 @@ module ApiDocLoader
     api_taglib
   end
 
+
   def self.load
     clear
 
@@ -89,10 +100,10 @@ module ApiDocLoader
       plugin.edit_link = File.join(plugin.edit_link_base, File.basename(readme_file))
       readme = File.read(readme_file)
       if readme =~ /(.*?\n)^#/m
-        plugin.short_description = Maruku.new($1).to_html
-        plugin.description = Maruku.new($POSTMATCH).to_html
+        plugin.short_description = ApiDocLoader.markdownify($1)
+        plugin.description = ApiDocLoader.markdownify($POSTMATCH)
       else
-        plugin.short_description = Maruku.new(readme).to_html
+        plugin.short_description = ApiDocLoader.markdownify(readme)
         plugin.description = ""
       end
 
