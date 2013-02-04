@@ -21,6 +21,7 @@ Hobocookbook::Application.routes.draw do
 
   match 'blog/feed' => redirect('/blog.atom')
   match 'blog/feed/atom' => redirect('/blog.atom')
+  match 'blog/feed/rss' => redirect('/blog.atom')
   match 'blog/comments/feed' => redirect('http://hobo-staging.disqus.com/latest.rss')
   match 'blog/comments/feed/atom' => redirect('http://hobo-staging.disqus.com/latest.rss')
   match 'blog/*slug' => 'blog#blog', :as => 'blog'
