@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Hobo/hobo.git
-  revision: e63f6be55f6de03fd61be3c78eb5616ac61f493c
+  revision: 5cacf09bd306bef688c72176c9b8ae1c4bfab621
   specs:
     doc (0.0.1)
     dryml (2.0.0.pre8)
@@ -287,7 +287,7 @@ GEM
       rake-remote_task (~> 2.1)
     will_paginate-bootstrap (0.2.2)
       will_paginate (>= 3.0.3)
-    yard (0.8.3)
+    yard (0.8.4)
 
 PLATFORMS
   ruby
