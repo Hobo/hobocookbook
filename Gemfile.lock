@@ -1,42 +1,42 @@
 GIT
   remote: git://github.com/Hobo/hobo.git
-  revision: 9ddb4b4e92042e5a2abbb0ab05b61486222d3a48
+  revision: 2f25e6fbd7c6e8223652881c114bbf79ec1be0c4
   specs:
     doc (0.0.1)
-    dryml (2.0.0.pre9)
+    dryml (2.0.0.pre10)
       actionpack (~> 3.2.0)
-      hobo_support (= 2.0.0.pre9)
-    hobo (2.0.0.pre9)
-      dryml (= 2.0.0.pre9)
-      hobo_fields (= 2.0.0.pre9)
-      hobo_support (= 2.0.0.pre9)
+      hobo_support (= 2.0.0.pre10)
+    hobo (2.0.0.pre10)
+      dryml (= 2.0.0.pre10)
+      hobo_fields (= 2.0.0.pre10)
+      hobo_support (= 2.0.0.pre10)
       will_paginate (~> 3.0.0)
-    hobo_clean (2.0.0.pre9)
-      hobo (= 2.0.0.pre9)
-      hobo_jquery (= 2.0.0.pre9)
-    hobo_clean_admin (2.0.0.pre9)
-      hobo_clean (= 2.0.0.pre9)
-    hobo_clean_sidemenu (2.0.0.pre9)
-      hobo_clean (= 2.0.0.pre9)
-    hobo_fields (2.0.0.pre9)
-      hobo_support (= 2.0.0.pre9)
-    hobo_jquery (2.0.0.pre9)
-      hobo_rapid (= 2.0.0.pre9)
+    hobo_clean (2.0.0.pre10)
+      hobo (= 2.0.0.pre10)
+      hobo_jquery (= 2.0.0.pre10)
+    hobo_clean_admin (2.0.0.pre10)
+      hobo_clean (= 2.0.0.pre10)
+    hobo_clean_sidemenu (2.0.0.pre10)
+      hobo_clean (= 2.0.0.pre10)
+    hobo_fields (2.0.0.pre10)
+      hobo_support (= 2.0.0.pre10)
+    hobo_jquery (2.0.0.pre10)
+      hobo_rapid (= 2.0.0.pre10)
       jquery-rails (~> 2.0)
-    hobo_jquery_ui (2.0.0.pre9)
-      hobo (= 2.0.0.pre9)
-      hobo_jquery (= 2.0.0.pre9)
+    hobo_jquery_ui (2.0.0.pre10)
+      hobo (= 2.0.0.pre10)
+      hobo_jquery (= 2.0.0.pre10)
       jquery-ui-themes (~> 0.0.4)
-    hobo_rapid (2.0.0.pre9)
-      hobo (= 2.0.0.pre9)
-    hobo_support (2.0.0.pre9)
+    hobo_rapid (2.0.0.pre10)
+      hobo (= 2.0.0.pre10)
+    hobo_support (2.0.0.pre10)
       rails (~> 3.2.0)
 
 GIT
   remote: git://github.com/Hobo/hobo_bootstrap.git
-  revision: 8cbc10c69987972023431d9f06c2927c28e55477
+  revision: 8a12b9979bdd82658dfb81e33e44762992db59ec
   specs:
-    hobo_bootstrap (2.0.0.pre8)
+    hobo_bootstrap (2.0.0.pre10)
       bootstrap-sass (~> 2.1)
       hobo (~> 2.0.0.pre6)
       hobo_jquery (~> 2.0.0.pre6)
@@ -44,9 +44,9 @@ GIT
 
 GIT
   remote: git://github.com/Hobo/hobo_bootstrap_ui.git
-  revision: 810ef5fd76e7a0b8135660011784896578a65fb3
+  revision: b3ca7e96a4eef63c01556afe53db1c78b5f2d2c7
   specs:
-    hobo_bootstrap_ui (2.0.0.pre8)
+    hobo_bootstrap_ui (2.0.0.pre10)
       bootstrap-datepicker-rails
       hobo_bootstrap (~> 2.0.0.pre1)
 
@@ -155,7 +155,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     awesome_print (1.1.0)
-    bootstrap-datepicker-rails (0.6.41)
+    bootstrap-datepicker-rails (0.6.42)
       railties (>= 3.0)
     bootstrap-sass (2.3.0.0)
       sass (~> 3.2)
