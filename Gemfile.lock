@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Hobo/hobo.git
-  revision: d748584289594bf4e1731112e69ab74acc28e5f0
+  revision: 9ddf19b1bae2adfef1556181b6ae44199adb7993
   specs:
     doc (0.0.1)
     dryml (2.0.0)
@@ -34,9 +34,9 @@ GIT
 
 GIT
   remote: git://github.com/Hobo/hobo_bootstrap.git
-  revision: 8a12b9979bdd82658dfb81e33e44762992db59ec
+  revision: 6607d79d83d52ef116053846cefc210f236810e8
   specs:
-    hobo_bootstrap (2.0.0.pre10)
+    hobo_bootstrap (2.0.0)
       bootstrap-sass (~> 2.1)
       hobo (~> 2.0.0.pre6)
       hobo_jquery (~> 2.0.0.pre6)
@@ -155,7 +155,7 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     awesome_print (1.1.0)
-    bootstrap-datepicker-rails (0.6.42)
+    bootstrap-datepicker-rails (1.0.0)
       railties (>= 3.0)
     bootstrap-sass (2.3.0.1)
       sass (~> 3.2)
@@ -172,11 +172,11 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.4.0)
+    coffee-script-source (1.5.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    faraday (0.8.5)
+    faraday (0.8.6)
       multipart-post (~> 1.1)
     hashie (1.2.0)
     hike (1.2.1)
@@ -184,7 +184,7 @@ GEM
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
     httpauth (0.2.0)
-    i18n (0.6.1)
+    i18n (0.6.2)
     journey (1.0.4)
     jquery-datatables-rails (1.11.2)
       jquery-rails
@@ -205,7 +205,7 @@ GEM
     mime-types (1.21)
     multi_json (1.6.1)
     multi_xml (0.5.3)
-    multipart-post (1.1.5)
+    multipart-post (1.2.0)
     mysql2 (0.3.11)
     nokogiri (1.5.6)
     oauth2 (0.8.1)
@@ -258,7 +258,7 @@ GEM
     rake-remote_task (2.2.0)
       open4 (~> 1.0)
       rake (>= 0.8, < 11.0)
-    rdoc (3.12.1)
+    rdoc (3.12.2)
       json (~> 1.4)
     sass (3.2.6)
     sass-rails (3.2.6)
@@ -287,7 +287,7 @@ GEM
       rake-remote_task (~> 2.1)
     will_paginate-bootstrap (0.2.2)
       will_paginate (>= 3.0.3)
-    yard (0.8.4.1)
+    yard (0.8.5.2)
 
 PLATFORMS
   ruby
