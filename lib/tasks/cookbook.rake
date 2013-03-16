@@ -129,6 +129,7 @@ namespace :cookbook do
   task :rebuild_agility => :environment do
     Gitorial.new("#{Rails.root}/gitorials/agility", "http://github.com/Hobo/agility-gitorial/commit/", "/patches/agility").process.each do |filename, markdown|
       next if markdown==""
+      puts filename
       f=open("#{Rails.root}/gitorials/#{filename}", "w")
       f.write(markdown)
       f.close
