@@ -116,5 +116,5 @@ repository again and manually move any changes you have made from your
 old clone to the new one.
 
 
-f7a476: [view on github](http://github.com/Hobo/agility-gitorial/commit/f7a47646a04051462d36644061e5572cd91f9368), [download 76-gitorial-sidebar.patch](/patches/agility/76-gitorial-sidebar.patch)
+f7a476: [view on github](http://github.com/Hobo/agility-gitorial/commit/f7a47646a04051462d36644061e5572cd91f9368), [download patch](http://github.com/Hobo/agility-gitorial/commit/f7a47646a04051462d36644061e5572cd91f9368.patch)
 {: .commit}

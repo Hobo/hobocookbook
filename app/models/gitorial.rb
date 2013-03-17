@@ -57,7 +57,7 @@ class Gitorial
             end
           }
           series = tags[commit].slice(-2..-1)
-          markdowns[filename] << "\n#{tags[commit]}: [view on github](#{@commit_link_base}#{commit}), [download #{series}-#{shortlog}.patch](#{@patch_link_base}/#{series}-#{shortlog}.patch)\n{: .commit}\n"
+          markdowns[filename] << "\n#{tags[commit]}: [view on github](#{@commit_link_base}#{commit}), [download patch](#{@commit_link_base}#{commit}.patch)\n{: .commit}\n"
         end
         
         message=["\n"]
