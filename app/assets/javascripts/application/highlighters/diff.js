@@ -10,5 +10,5 @@ CodeHighlighter.addStyle("diff", {
   },
   file: {
       exp : /(\n|^)([:]{3}.*)(?=\n|$)/
-  },
+  }
 });
