@@ -28,3 +28,42 @@ Run this command now and whenever you want to update/rebuild any of the external
     $ bundle exec rake cookbook:update
 
 
+# How to update the Agility Tutorial
+
+The Agility tutorial is a Gitorial, a git based tutorial build with stacked git. These are the steps to edit the tutorial:
+
+* Clone https://github.com/Hobo/agility-gitorial-patches
+* Follow the steps from the Readme in https://github.com/Hobo/agility-gitorial-patches to edit the patches
+* Make a commit to Hobo/agility-gitorial-patches
+* Overwrite history in Hobo/agility-gitorial:
+
+    cd agility-gitorial
+    git remote add origin git@github.com:Hobo/agility-gitorial.git
+    gitorial-bulk-tag # Download from here: https://github.com/bryanlarsen/gitorial-tools/blob/master/gitorial-bulk-tag
+    git push origin --force
+    git push --tags origin --force
+
+* Clone this repository and build the contents: https://github.com/Hobo/agility-gitorial-patches. (A new copy is recommended)
+
+    git clone git@github.com:Hobo/hobocookbook
+    cd hobocookbook
+    bundle
+    bundle exec rake db:migrate
+    git submodule update --init
+    pwd > git-path
+    echo 'master' > git-version
+    bundle exec rake cookbook:update
+    bundle exec rails s
+
+* Go to http://localhost:3000 and check that the tutorial has been updated successfully
+
+* Edit gitorials/agility.markdown and remove the last sections, starting with "Unit Testing". This is because a bug in Kramdown and Ruby 1.8.7: it breaks with files which are too long. In the future we'll divide the tutorial into different sections.
+
+* Push the changes to Github and update the production server
+
+    git add gitorials/agility.markdown
+    git push origin master
+    bundle exec rake vlad:update && bundle exec rake vlad:start_app # you need admin privileges for this :)
+
+
+
