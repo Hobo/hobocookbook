@@ -46,5 +46,10 @@ ul#markdown-toc ul {
 }
 
 .hidden {
-    display: none;
+  display: none;
+}
+.navbar .nav > li > a {
+  color: white;
+  float: none;
+  padding: 10px 11px;
 }
