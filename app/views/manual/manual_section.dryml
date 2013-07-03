@@ -1,4 +1,4 @@
-<page full-title="Hobo Manual - #{this.title}" title="Manual" without-account-nav>
+<page full-title="Hobo Manual - #{this.title}" title="#{@this.title == 'Community' ? 'Community' : 'Manual'}" without-account-nav>
   <body: class="manual"/>
 
   <aside-content:>
