@@ -1,0 +1,19 @@
+<page title="Tutorials" full-title="Hobo Tutorials - Screencast Hobo 1.0" without-account-nav>
+  <body: class="tutorial"/>
+
+  <aside-content:>
+    <div class="well">
+      <%=raw @sidebar.body %>
+    </div>
+  </aside-content:>
+
+  <content:>
+    <section class="content-body">
+      <iframe src="http://player.vimeo.com/video/7897205" width="700" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen ></iframe>
+    </section>
+    <disqus identifier="/tutorials/screencast"/>
+  </content:>
+
+</page>
+
+

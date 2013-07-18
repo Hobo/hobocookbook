@@ -13,4 +13,8 @@ class TutorialsController < ApplicationController
   def screencast
     @sidebar = Tutorial.find_by_slug("sidebar")
   end
+  
+  def screencast_10
+    @sidebar = Tutorial.find_by_slug("sidebar")
+  end
 end

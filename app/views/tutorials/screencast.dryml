@@ -9,9 +9,10 @@
 
   <content:>
     <section class="content-body">
-      <iframe src="http://player.vimeo.com/video/7897205" width="700" height="500" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen ></iframe>
+      <iframe width="100%" height="525" src="//www.youtube.com/embed/L90sMGsqYYM" frameborder="0" allowfullscreen></iframe>
+      <p>This screencast features Hobo 2.0. You can also watch the old Hobo 1.0 screencast <a href="/tutorials/screencast_10">here</a>.</p>
     </section>
-    <disqus identifier="/tutorials/screencast"/>
+    <disqus identifier="/tutorials/screencast20"/>
   </content:>
 
 </page>

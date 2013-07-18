@@ -12,6 +12,7 @@ Hobocookbook::Application.routes.draw do
 
   match 'tutorials' => 'tutorials#index', :as => 'tutorials'
   match 'tutorials/screencast' => 'tutorials#screencast', :as => 'tutorial'
+  match 'tutorials/screencast_10' => 'tutorials#screencast_10', :as => 'tutorial'
   match 'tutorials/:tutorial' => 'tutorials#show', :as => 'tutorial'
 
   match 'plugins' => "plugins#index", :as => 'plugins'
