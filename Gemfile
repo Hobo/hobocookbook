@@ -77,3 +77,4 @@ gem "nokogiri"
 gem "will_paginate", :git => "git://github.com/Hobo/will_paginate.git"
 
 gem "omniauth-github"
+gem "will_paginate-bootstrap", '0.2.3'
