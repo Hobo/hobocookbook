@@ -121,6 +121,9 @@ ActiveRecord::Schema.define(:version => 20130126140723) do
   add_index "api_taglibs_14", ["name"], :name => "index_api_taglibs_14_on_name"
   add_index "api_taglibs_14", ["plugin_id"], :name => "index_api_taglibs_14_on_plugin_id"
 
+  create_table "authorizations", :force => true do |t|
+  end
+
   create_table "blogs", :force => true do |t|
     t.string   "title",                         :null => false
     t.text     "body",       :limit => 1048576, :null => false
@@ -131,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20130126140723) do
     t.datetime "updated_at"
   end
 
+  add_index "blogs", ["created_at"], :name => "index_blogs_on_created_at"
   add_index "blogs", ["slug"], :name => "index_blogs_on_slug"
 
   create_table "comments", :force => true do |t|
