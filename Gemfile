@@ -23,17 +23,17 @@ gem "paperclip", "~> 2.7"
 #required by paperclip
 gem "cocaine"
 
-gem "hobo_support", :git => "git://github.com/Hobo/hobo.git"
-gem "hobo_fields", :git => "git://github.com/Hobo/hobo.git"
-gem "dryml", :git => "git://github.com/Hobo/hobo.git"
-gem "hobo", :git => "git://github.com/Hobo/hobo.git"
-gem "hobo_rapid", :git => "git://github.com/Hobo/hobo.git"
-gem "hobo_clean", :git => "git://github.com/Hobo/hobo.git"
-gem "hobo_clean_sidemenu", :git => "git://github.com/Hobo/hobo.git"
-gem "hobo_clean_admin", :git => "git://github.com/Hobo/hobo.git"
-gem "hobo_jquery", :git => "git://github.com/Hobo/hobo.git"
-gem "hobo_jquery_ui", :git => "git://github.com/Hobo/hobo.git"
-gem "doc", :git => "git://github.com/Hobo/hobo.git"
+gem "hobo_support", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo_fields", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "dryml", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo_rapid", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo_clean", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo_clean_sidemenu", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo_clean_admin", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo_jquery", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo_jquery_ui", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "doc", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
 
 gem "jquery-rails"
 gem "jquery-ui-themes"

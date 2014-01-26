@@ -50,7 +50,7 @@
 <def tag="version-switcher">
   <div class="btn-group">
     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-      Hobo 2.0/Rails 3.2
+      Hobo 2/Rails 3 &amp; 4
       <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
