@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Hobo/hobo.git
-  revision: 7a04a86a714cc3949f96f8ce864c9a62c5e1f476
+  revision: 249b89fa81704c0d7533d59aa012d57b783d16a7
   branch: 2-0-stable
   specs:
     doc (0.0.1)
