@@ -1,6 +1,6 @@
 class ApiPlugin < ActiveRecord::Base
 
-  set_table_name "api_plugins_14"
+  self.table_name = "api_plugins_14"
 
   hobo_model # Don't put anything above this
 

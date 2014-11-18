@@ -1,40 +1,40 @@
 Hobocookbook::Application.routes.draw do
   root :to => 'manual#home', :as => 'home'
 
-  match 'search' => 'front#search', :as => 'site_search'
-  match 'manual' => 'manual#index'
-  match 'manual/home' => 'manual#home'
-  match 'manual/:section' => 'manual#manual_section', :as => 'manual_section'
-  match 'manual/:section/:subsection' => 'manual#manual_subsection'
+  get 'search' => 'front#search', :as => 'site_search'
+  get 'manual' => 'manual#index'
+  get 'manual/home' => 'manual#home'
+  get 'manual/:section' => 'manual#manual_section', :as => 'manual_section'
+  get 'manual/:section/:subsection' => 'manual#manual_subsection'
 
-  match 'tagdef/:plugin/:taglib/:tag' => 'api_tag_defs#tagdef', :as => 'tagdef'
-  match 'tagdef/:plugin/:taglib/:tag/:for' => 'api_tag_defs#tagdef', :as => 'tagdef_for'
+  get 'tagdef/:plugin/:taglib/:tag' => 'api_tag_defs#tagdef', :as => 'tagdef'
+  get 'tagdef/:plugin/:taglib/:tag/:for' => 'api_tag_defs#tagdef', :as => 'tagdef_for'
 
-  match 'tutorials' => 'tutorials#index', :as => 'tutorials'
-  match 'tutorials/screencast' => 'tutorials#screencast', :as => 'tutorial'
-  match 'tutorials/screencast_10' => 'tutorials#screencast_10', :as => 'tutorial'
-  match 'tutorials/:tutorial' => 'tutorials#show', :as => 'tutorial'
+  get 'tutorials' => 'tutorials#index', :as => 'tutorials'
+  get 'tutorials/screencast' => 'tutorials#screencast', :as => 'tutorial_screencast'
+  get 'tutorials/screencast_10' => 'tutorials#screencast_10', :as => 'tutorial_screencast_10'
+  get 'tutorials/:tutorial' => 'tutorials#show', :as => 'tutorial'
 
-  match 'plugins' => "plugins#index", :as => 'plugins'
-  match 'plugins/:plugin' => "plugins#show", :as => 'plugin'
+  get 'plugins' => "plugins#index", :as => 'plugins'
+  get 'plugins/:plugin' => "plugins#show", :as => 'plugin'
 
-  match 'github/*uri' => 'github#github', :format => false, :as => 'github'
+  get 'github/*uri' => 'github#github', :format => false, :as => 'github'
 
-  match 'blog/feed' => redirect('/blog.atom')
-  match 'blog/feed/atom' => redirect('/blog.atom')
-  match 'blog/feed/rss' => redirect('/blog.atom')
-  match 'blog/comments/feed' => redirect('http://hobo-staging.disqus.com/latest.rss')
-  match 'blog/comments/feed/atom' => redirect('http://hobo-staging.disqus.com/latest.rss')
-  match 'blog/*slug' => 'blog#blog', :as => 'blog'
-  match 'blog' => 'blog#index', :as => 'blogs'
+  get 'blog/feed' => redirect('/blog.atom')
+  get 'blog/feed/atom' => redirect('/blog.atom')
+  get 'blog/feed/rss' => redirect('/blog.atom')
+  get 'blog/comments/feed' => redirect('http://hobo-staging.disqus.com/latest.rss')
+  get 'blog/comments/feed/atom' => redirect('http://hobo-staging.disqus.com/latest.rss')
+  get 'blog/*slug' => 'blog#blog', :as => 'blog'
+  get 'blog' => 'blog#index', :as => 'blogs'
 
   # old routes from hobocentral.net
-  match 'about' => redirect('/manual/about')
-  match 'gallery' => redirect('/manual/gallery')
-  match 'books' => redirect('/manual/books')
-  match 'community' => redirect('/manual/community')
-  match 'forum' => redirect('/manual/community')
-  match 'api_taglibs' => redirect('/api_plugins')
+  get 'about' => redirect('/manual/about')
+  get 'gallery' => redirect('/manual/gallery')
+  get 'books' => redirect('/manual/books')
+  get 'community' => redirect('/manual/community')
+  get 'forum' => redirect('/manual/community')
+  get 'api_taglibs' => redirect('/api_plugins')
 
   #map.site_search  'search', :controller => 'front', :action => 'search'
 
@@ -55,11 +55,11 @@ Hobocookbook::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  #   get 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  #   get 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -106,5 +106,5 @@ Hobocookbook::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  # get ':controller(/:action(/:id(.:format)))'
 end

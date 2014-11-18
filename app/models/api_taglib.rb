@@ -2,7 +2,7 @@ class ApiTaglib < ActiveRecord::Base
 
   # so we can coexist with other
   # versions of the cookbook
-  set_table_name "api_taglibs_14"
+  self.table_name = "api_taglibs_14"
 
   hobo_model # Don't put anything above this
 

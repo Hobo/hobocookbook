@@ -1,7 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.12'
-gem 'rack', '1.4.5'
+gem 'rails', '4.0.11'
+gem 'actionpack-page_caching'
+gem 'protected_attributes'
+#gem 'rack', '1.4.5'
 #gem 'rake', '0.8.7'
 #gem 'will_paginate', '~> 3.0.0'
 
@@ -23,17 +25,17 @@ gem "paperclip", "~> 2.7"
 #required by paperclip
 gem "cocaine"
 
-gem "hobo_support", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "hobo_fields", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "dryml", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "hobo", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "hobo_rapid", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "hobo_clean", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "hobo_clean_sidemenu", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "hobo_clean_admin", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "hobo_jquery", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "hobo_jquery_ui", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
-gem "doc", :git => "git://github.com/Hobo/hobo.git", :branch => '2-0-stable'
+gem "hobo_support", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "hobo_fields", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "dryml", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "hobo", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "hobo_rapid", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "hobo_clean", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "hobo_clean_sidemenu", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "hobo_clean_admin", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "hobo_jquery", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "hobo_jquery_ui", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
+gem "doc", :git => "git://github.com/Hobo/hobo.git"#, :branch => '2-0-stable'
 
 gem "jquery-rails"
 gem "jquery-ui-themes"
@@ -49,13 +51,13 @@ gem "vlad-git", :git => "git://github.com/bryanlarsen/vlad-git.git", :require =>
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'execjs'
-  gem 'therubyracer', '~> 0.10.2'
+  gem 'sass-rails', '~> 4.0.4'
+  # gem 'coffee-rails'#, '~> 3.2.1'
+  # gem 'uglifier'#, '>= 1.0.3'
+  # gem 'execjs'
+  # gem 'therubyracer'#, '~> 0.10.2'
 
-  gem 'bootstrap-sass'
+  gem 'bootstrap-sass', '2.3.2.2'
   gem 'bootswatch-rails'
 end
 
