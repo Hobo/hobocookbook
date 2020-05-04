@@ -6,7 +6,7 @@ gem 'rack', '1.4.5'
 #gem 'will_paginate', '~> 3.0.0'
 
 #gem 'sqlite3'
-gem 'mysql2'
+# gem 'mysql2'
 
 gem 'yard'
 
@@ -39,7 +39,8 @@ gem "jquery-rails"
 gem "jquery-ui-themes"
 
 group :development do
-  gem 'sqlite3'
+  gem 'sqlite3', '1.3.13'
+  gem 'test-unit'
 end
 
 # not really required on server, but the Rakefile require's them, so might as well install them
@@ -78,3 +79,7 @@ gem "will_paginate", :git => "git://github.com/Hobo/will_paginate.git"
 
 gem "omniauth-github"
 gem "will_paginate-bootstrap", '0.2.3'
+
+
+gem 'json', '1.8.6'
+gem 'mysql2', '0.5.3'

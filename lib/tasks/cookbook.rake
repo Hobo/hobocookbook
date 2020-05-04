@@ -161,7 +161,8 @@ namespace :cookbook do
   end
 
   desc "do all update tasks"
-  task :update => [:environment, :pull_all, :load_api_docs, :rebuild_agility, :load_tutorials, :load_manual, :load_blog] do
+  # task :update => [:environment, :pull_all, :load_api_docs, :rebuild_agility, :load_tutorials, :load_manual, :load_blog] do
+  task :update => [:environment, :load_api_docs, :load_tutorials, :load_manual, :load_blog] do
     true
   end
 end
